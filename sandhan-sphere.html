@@ -510,6 +510,15 @@
       e.preventDefault(); togglePlay();
     }
   });
+
+  // Auto-start music — window was opened by user click, so autoplay is permitted
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      audio.play().catch(() => {
+        // Autoplay blocked — user can click play manually
+      });
+    }, 350);
+  });
 </script>
 </body>
 </html>

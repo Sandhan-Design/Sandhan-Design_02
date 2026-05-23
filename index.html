@@ -82,10 +82,16 @@
       letter-spacing: 0.06em;
       color: var(--forest);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
     }
     .nav-brand em {
       font-style: normal;
       color: var(--terra);
+    }
+    .nav-brand-text {
+      line-height: 1;
     }
     .nav-links {
       list-style: none;
@@ -996,12 +1002,12 @@
 
     /* ── NAV LOGO ─────────────────────────────── */
     .nav-logo {
-      height: 38px;
+      height: 36px;
       width: auto;
-      max-width: 180px;
+      max-width: 150px;
       object-fit: contain;
       display: block;
-      mix-blend-mode: multiply;
+      filter: drop-shadow(0 1px 4px rgba(0,0,0,0.18)) brightness(0.82) contrast(1.1);
     }
 
     /* ── ABOUT PHOTO ───────────────────────────── */
@@ -1096,45 +1102,36 @@
     /* ── SPHERE EXPAND BUTTON ─────────────────── */
     .sphere-expand-btn {
       position: absolute;
-      bottom: -8px; right: -8px;
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      background: rgba(14,30,22,0.9);
-      border: 1.5px solid rgba(196,113,58,0.5);
+      bottom: -22px; right: 50%;
+      transform: translateX(50%);
+      height: 34px;
+      padding: 0 1rem 0 0.8rem;
+      border-radius: 17px;
+      background: rgba(14,30,22,0.92);
+      border: 1.5px solid rgba(196,113,58,0.55);
       color: var(--terra-light);
       cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
+      display: flex; align-items: center; gap: 0.45rem;
       z-index: 20;
       transition: all 0.28s ease;
       box-shadow: 0 4px 18px rgba(0,0,0,0.5), 0 0 14px rgba(196,113,58,0.14);
       outline: none;
       backdrop-filter: blur(6px);
+      white-space: nowrap;
     }
     .sphere-expand-btn:hover {
       background: var(--terra);
       border-color: var(--terra-light);
-      transform: scale(1.15);
+      transform: translateX(50%) scale(1.06);
       box-shadow: 0 6px 26px rgba(0,0,0,0.55), 0 0 22px rgba(196,113,58,0.3);
     }
-    .sphere-expand-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
-    .sphere-expand-tooltip {
-      position: absolute;
-      bottom: calc(100% + 10px); right: 0;
-      background: rgba(14,30,22,0.97);
-      border: 1px solid rgba(196,113,58,0.28);
-      color: var(--terra-light);
+    .sphere-expand-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .sphere-expand-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem; letter-spacing: 0.07em;
-      white-space: nowrap;
-      padding: 0.38rem 0.8rem;
-      border-radius: 2px;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateY(5px);
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .sphere-expand-btn:hover .sphere-expand-tooltip {
-      opacity: 1; transform: translateY(0);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
     }
 
     /* ── RESPONSIVE ────────────────────────────── */
@@ -1169,8 +1166,8 @@
 <nav id="nav">
   <a href="#" class="nav-brand">
     <img src="sandhan_design_logo_under_1mb.jpg" alt="Sandhan Design" class="nav-logo"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
-    <span style="display:none">Sandhan<em>.Design</em></span>
+         onerror="this.style.display='none'">
+    <span class="nav-brand-text">Sandhan<em>.Design</em></span>
   </a>
   <ul class="nav-links">
     <li><a href="#fur-wen">Für wen</a></li>
@@ -1187,7 +1184,7 @@
     <div class="hero-left">
       <div class="hero-eye eyebrow">Webdesign für die Heilende Szene</div>
       <h1 class="hero-h1">
-        Ihre Praxis.<br>
+        Deine Praxis.<br>
         <em>Online.</em><br>
         In einer Woche.
       </h1>
@@ -1201,7 +1198,7 @@
       </div>
       <div class="hero-bar">
         <div>
-          <span class="hero-stat-num">5</span>
+          <span class="hero-stat-num">5–15</span>
           <span class="hero-stat-lbl">Tage Lieferzeit</span>
         </div>
         <div>
@@ -1343,14 +1340,14 @@
         <div class="oring oring--4"></div>
 
         <!-- ── Full-size / Music expand button ── -->
-        <button class="sphere-expand-btn" onclick="openSphereWindow()" aria-label="Volle Ansicht">
+        <button class="sphere-expand-btn" onclick="openSphereWindow()" aria-label="Volle Ansicht mit Musik">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
             <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
             <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
             <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
           </svg>
-          <span class="sphere-expand-tooltip">Volle Ansicht · Musik</span>
+          <span class="sphere-expand-label">Full View</span>
         </button>
 
       </div><!-- /orbital-system -->
@@ -1364,9 +1361,9 @@
 <section class="forwhom section" id="fur-wen">
   <div class="inner">
     <span class="eyebrow eyebrow--light">Für wen</span>
-    <h2 class="section-title reveal">Für alle, die heilen —<br>nicht programmieren.</h2>
+    <h2 class="section-title reveal">Für alle, die heilen —<br>nicht coden.</h2>
     <p class="section-sub reveal reveal-d1">
-      Ihre Energie gehört Ihren Klientinnen. Nicht DSGVO-Paragraphen,
+      Deine Energie gehört deinen Klientinnen. Nicht DSGVO-Paragraphen,
       nicht Technik-Support um 22 Uhr.
     </p>
 
@@ -1384,14 +1381,14 @@
         <h3 class="fwcard-title">Coaches & Therapeutinnen</h3>
         <p class="fwcard-body">
           Life-Coaching, Trauma-Arbeit, systemische Beratung, Psychotherapie. Eine Website, die Vertrauen schafft,
-          bevor das erste Gespräch stattfindet — weil Klienten Sie googeln, bevor sie anrufen.
+          bevor das erste Gespräch stattfindet — weil Klienten dich googeln, bevor sie anrufen.
         </p>
       </div>
       <div class="fwcard reveal reveal-d3">
         <span class="fwcard-glyph">◎</span>
         <h3 class="fwcard-title">Spirituelle Praxis</h3>
         <p class="fwcard-body">
-          Meditation, Yoga, Tantra, Schamanismus, Energiearbeit, Bewusstseinsarbeit. Design, das Ihre Essenz
+          Meditation, Yoga, Tantra, Schamanismus, Energiearbeit, Bewusstseinsarbeit. Design, das deine Essenz
           trägt — ohne esoterische Klischees, ohne lila Farbverläufe auf weißem Hintergrund.
         </p>
       </div>
@@ -1423,7 +1420,7 @@
         <h2 class="section-title reveal">Drei Pakete.<br>Ein Festpreis.<br>Keine Überraschungen.</h2>
       </div>
       <p class="section-sub reveal reveal-d1">
-        Kein Stundenhonorar. Kein Scope-Creep. Sie wissen von Anfang an, was Sie bekommen —
+        Kein Stundenhonorar. Kein Scope-Creep. Du weißt von Anfang an, was du bekommst —
         und was es kostet. Die Wartung ist im Preis, kein Nachkaufen nötig.
       </p>
     </div>
@@ -1437,7 +1434,7 @@
         <div class="pkg-price"><sup>€</sup>1.490</div>
         <div class="pkg-note">einmalig · 3 Monate Wartung inklusive</div>
         <div class="pkg-divider"></div>
-        <p class="pkg-desc">Für den professionellen Einstieg: ein One-Pager, der Ihre Arbeit klar zeigt und sofort Vertrauen schafft.</p>
+        <p class="pkg-desc">Für den professionellen Einstieg: ein One-Pager, der deine Arbeit klar zeigt und sofort Vertrauen schafft.</p>
         <ul class="pkg-list">
           <li class="pkg-item">1 Seite (One-Pager), bis zu 5 Sektionen</li>
           <li class="pkg-item">Hero · Über mich · Angebot · Stimmen · Kontakt</li>
@@ -1459,11 +1456,11 @@
         <div class="pkg-price"><sup>€</sup>2.490</div>
         <div class="pkg-note">einmalig · 6 Monate Wartung inklusive</div>
         <div class="pkg-divider"></div>
-        <p class="pkg-desc">Mit individuellem Texting-Onboarding, Blog und Newsletter-Anbindung. Ihre digitale Heimat — fertig zum Wachsen.</p>
+        <p class="pkg-desc">Mit individuellem Texting-Onboarding, Blog und Newsletter-Anbindung. Deine digitale Heimat — fertig zum Wachsen.</p>
         <ul class="pkg-list">
           <li class="pkg-item">Bis zu 5 Unterseiten</li>
           <li class="pkg-item">Strukturiertes Texting-Onboarding (Fragebogen + Telefonat)</li>
-          <li class="pkg-item">Blog-Funktion eingerichtet (schreiben Sie selbst)</li>
+          <li class="pkg-item">Blog-Funktion eingerichtet (du schreibst selbst)</li>
           <li class="pkg-item">Newsletter-Anbindung (Brevo, MailerLite — EU-Server)</li>
           <li class="pkg-item">Bildauswahl aus lizenzfreien Quellen & Aufbereitung</li>
           <li class="pkg-item">Ausführliche Datenschutzerklärung</li>
@@ -1499,9 +1496,9 @@
     <div class="maint-strip reveal">
       <div class="maint-title">Monatliche Wartung</div>
       <div class="maint-body">
-        Nach der inklusiven Zeit läuft Ihre Website nahtlos weiter: <strong>€ 49 / 69 / 89 pro Monat</strong> je nach Paket.
+        Nach der inklusiven Zeit läuft deine Website nahtlos weiter: <strong>€ 49 / 69 / 89 pro Monat</strong> je nach Paket.
         Darin enthalten: Hosting, Sicherheits-Updates und regelmäßige kleine Anpassungen.
-        Kündbar mit 3 Monaten Frist. Sie konzentrieren sich auf Ihre Arbeit — ich sorge dafür, dass Ihre Website läuft.
+        Kündbar mit 3 Monaten Frist. Du konzentrierst dich auf deine Arbeit — ich sorge dafür, dass deine Website läuft.
       </div>
     </div>
   </div>
@@ -1513,7 +1510,7 @@
     <span class="eyebrow">Ablauf</span>
     <h2 class="section-title reveal">Vier Schritte.<br>Von der Anfrage<br>zur fertigen Website.</h2>
     <p class="section-sub reveal reveal-d1">
-      Ein ruhiger, klarer Prozess ohne Überraschungen. Sie wissen immer, wo es gerade steht.
+      Ein ruhiger, klarer Prozess ohne Überraschungen. Du weißt immer, wo es gerade steht.
     </p>
 
     <div class="proc-grid">
@@ -1522,7 +1519,7 @@
         <div class="proc-dot"></div>
         <div>
           <h3 class="proc-title">20-Minuten-Gespräch</h3>
-          <p class="proc-body">Wir telefonieren kurz. Sie erzählen, was Sie machen und was Ihre Website leisten soll. Ich erkläre, welches Paket passt. Kein Druck, keine Verpflichtung — und ich sage ehrlich, wenn ich nicht der Richtige bin.</p>
+          <p class="proc-body">Wir telefonieren kurz. Du erzählst, was du machst und was deine Website leisten soll. Ich erkläre, welches Paket passt. Kein Druck, keine Verpflichtung — und ich sage ehrlich, wenn ich nicht der Richtige bin.</p>
           <span class="proc-time">Tag 1</span>
         </div>
       </div>
@@ -1532,7 +1529,7 @@
         <div class="proc-dot"></div>
         <div>
           <h3 class="proc-title">Angebot & Onboarding</h3>
-          <p class="proc-body">Klares Angebot als PDF innerhalb von 24 Stunden. Nach Auftragsbestätigung und 50 % Anzahlung startet das Onboarding: ein strukturierter Fragebogen sammelt alles, was ich brauche — Ihre Texte, Bilder, Wünsche.</p>
+          <p class="proc-body">Klares Angebot als PDF innerhalb von 24 Stunden. Nach Auftragsbestätigung und 50 % Anzahlung startet das Onboarding: ein strukturierter Fragebogen sammelt alles, was ich brauche — deine Texte, Bilder, Wünsche.</p>
           <span class="proc-time">Tag 2–3</span>
         </div>
       </div>
@@ -1542,7 +1539,7 @@
         <div class="proc-dot"></div>
         <div>
           <h3 class="proc-title">Bau & Korrektur</h3>
-          <p class="proc-body">Ich baue Ihre Website — klar strukturiert, visuell stimmig, DSGVO-konform. Sie erhalten einen Preview-Link und können in einer (oder mehreren) gebündelten Korrekturschleifen alles feintunen.</p>
+          <p class="proc-body">Ich baue deine Website — klar strukturiert, visuell stimmig, DSGVO-konform. Du erhältst einen Preview-Link und kannst in einer (oder mehreren) gebündelten Korrekturschleifen alles feintunen.</p>
           <span class="proc-time">Tag 3–12</span>
         </div>
       </div>
@@ -1552,7 +1549,7 @@
         <div class="proc-dot"></div>
         <div>
           <h3 class="proc-title">Live & laufende Betreuung</h3>
-          <p class="proc-body">Ihre Website geht online. Alle Zugangsdaten werden übergeben. 50 % Restbetrag ist fällig. Ab jetzt läuft die Wartung — Sie müssen sich um nichts mehr kümmern. Ihre Energie gehört Ihren Klientinnen.</p>
+          <p class="proc-body">Deine Website geht online. Alle Zugangsdaten werden übergeben. 50 % Restbetrag ist fällig. Ab jetzt läuft die Wartung — du musst dich um nichts mehr kümmern. Deine Energie gehört deinen Klientinnen.</p>
           <span class="proc-time">Tag 5–15</span>
         </div>
       </div>
@@ -1588,11 +1585,11 @@
         <p class="about-body reveal reveal-d2">
           Was ich heute mache: Ich baue klare, schnelle Websites für Menschen wie Sie.
           Festpreis. DSGVO-sicher. In einer Woche fertig. Mit laufender Betreuung,
-          damit Sie sich nie wieder um Technik kümmern müssen.
+          damit du dich nie wieder um Technik kümmern musst.
         </p>
         <blockquote class="about-quote reveal reveal-d2">
-          "Sandhan" — auf Sanskrit: Verbindung, Brücke, Synthesis. Zwischen Ihrer Arbeit
-          und den Menschen, die Sie suchen.
+          "Sandhan" — auf Sanskrit: Verbindung, Brücke, Synthesis. Zwischen deiner Arbeit
+          und den Menschen, die dich suchen.
         </blockquote>
         <div class="about-chips reveal reveal-d3">
           <span class="chip">40+ Jahre Netzwerk</span>
@@ -1612,11 +1609,11 @@
     <div class="dsgvo-grid">
       <div>
         <span class="eyebrow eyebrow--sage">Rechtssicherheit</span>
-        <h2 class="dsgvo-title reveal">DSGVO ist kein<br>lästiges Thema —<br><em style="font-style:italic">sondern Ihr Schutz.</em></h2>
+        <h2 class="dsgvo-title reveal">DSGVO ist kein<br>lästiges Thema —<br><em style="font-style:italic">sondern dein Schutz.</em></h2>
         <p class="dsgvo-body reveal reveal-d1">
           Besonders bei Heilpraktikern ist DSGVO kein Formalismus. Gesundheitsdaten
           nach Art. 9 DSGVO sind besonders schützenswert — und ein Abmahnrisiko, das
-          Sie und ich beide nicht haben wollen. Ich löse das standardmäßig mit,
+          wir beide nicht haben wollen. Ich löse das standardmäßig mit,
           nicht als Zusatz.
         </p>
       </div>
@@ -1712,11 +1709,11 @@
     <span class="eyebrow eyebrow--light reveal" style="justify-content:center">Kontakt</span>
     <h2 class="cta-title reveal reveal-d1">
       Bereit für<br>
-      Ihren ersten<br>
+      Deinen ersten<br>
       Schritt?
     </h2>
     <p class="cta-sub reveal reveal-d2">
-      20 Minuten reichen. Wir schauen gemeinsam, ob und welches Paket zu Ihnen passt.
+      20 Minuten reichen. Wir schauen gemeinsam, ob und welches Paket zu dir passt.
       Kein Druck, keine Verpflichtung. Wenn ich nicht der Richtige bin, sage ich das.
     </p>
     <div class="cta-actions reveal reveal-d2">
@@ -2036,7 +2033,7 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
       w.document.write(html);
       w.document.close();
     } else {
-      alert('Bitte erlauben Sie Pop-up-Fenster — oder deaktivieren Sie den Pop-up-Blocker für diese Seite.');
+      alert('Bitte erlaube Pop-up-Fenster — oder deaktiviere den Pop-up-Blocker für diese Seite.');
     }
   }
 
