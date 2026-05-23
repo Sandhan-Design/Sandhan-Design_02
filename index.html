@@ -994,6 +994,105 @@
     ::-webkit-scrollbar-track { background: var(--parchment); }
     ::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 3px; }
 
+    /* ── NAV LOGO ─────────────────────────────── */
+    .nav-logo {
+      height: 38px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+      display: block;
+      mix-blend-mode: multiply;
+    }
+
+    /* ── ABOUT PHOTO ───────────────────────────── */
+    .about-photo {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* ── LEGAL MODALS ──────────────────────────── */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(10,20,15,0.82);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: flex; align-items: flex-end; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .modal-overlay.open {
+      opacity: 1; pointer-events: all;
+    }
+    .modal-box {
+      background: var(--parchment);
+      width: 100%; max-width: 780px;
+      max-height: 88vh;
+      border-radius: 6px 6px 0 0;
+      overflow-y: auto;
+      transform: translateY(40px);
+      transition: transform 0.38s cubic-bezier(.22,.68,0,1.2);
+      position: relative;
+    }
+    .modal-overlay.open .modal-box {
+      transform: translateY(0);
+    }
+    .modal-header {
+      position: sticky; top: 0;
+      background: var(--parchment);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.75rem 2.5rem 1.25rem;
+      border-bottom: 1px solid rgba(42,72,64,0.1);
+      z-index: 1;
+    }
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 400;
+      color: var(--forest);
+    }
+    .modal-close {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: transparent;
+      border: 1px solid rgba(42,72,64,0.2);
+      color: var(--ink-mid); font-size: 1rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; flex-shrink: 0;
+    }
+    .modal-close:hover { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+    .modal-body {
+      padding: 2rem 2.5rem 3rem;
+    }
+    .modal-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem; font-weight: 500;
+      color: var(--forest);
+      margin: 1.75rem 0 0.6rem;
+    }
+    .modal-body h2:first-child { margin-top: 0; }
+    .modal-body p {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+    .modal-body a {
+      color: var(--forest);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .modal-body a:hover { color: var(--terra); }
+    .modal-body .legal-address {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.9;
+    }
+    .modal-divider {
+      height: 1px;
+      background: rgba(42,72,64,0.1);
+      margin: 1.5rem 0;
+    }
+
     /* ── SPHERE EXPAND BUTTON ─────────────────── */
     .sphere-expand-btn {
       position: absolute;
@@ -1068,13 +1167,17 @@
 
 <!-- ══ NAVIGATION ══════════════════════════════ -->
 <nav id="nav">
-  <a href="#" class="nav-brand">Sandhan<em>.Design</em></a>
+  <a href="#" class="nav-brand">
+    <img src="sandhan_design_logo_under_1mb.jpg" alt="Sandhan Design" class="nav-logo"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+    <span style="display:none">Sandhan<em>.Design</em></span>
+  </a>
   <ul class="nav-links">
     <li><a href="#fur-wen">Für wen</a></li>
     <li><a href="#pakete">Pakete</a></li>
     <li><a href="#prozess">Ablauf</a></li>
     <li><a href="#uber-mich">Über mich</a></li>
-    <li><a href="#kontakt" class="nav-cta">Erstgespräch</a></li>
+    <li><a href="mailto:sandhan.westphal@gmx.de" class="nav-cta">Erstgespräch</a></li>
   </ul>
 </nav>
 
@@ -1463,9 +1566,7 @@
     <div class="about-grid">
       <div class="about-portrait-wrap reveal">
         <div class="about-portrait">
-          <div class="about-portrait-inner">
-            <span class="about-initial">J</span>
-          </div>
+          <img src="Sandhan_02.jpg" alt="Sandhan Jürgen Westphal" class="about-photo">
           <!-- Subtle decorative mesh -->
           <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(196,113,58,0.08) 0%,transparent 55%);pointer-events:none;"></div>
         </div>
@@ -1620,7 +1721,6 @@
     </p>
     <div class="cta-actions reveal reveal-d2">
       <a href="mailto:sandhan.westphal@gmx.de" class="btn btn-fill">Gespräch anfragen</a>
-      <a href="tel:+49" class="btn btn-outline-light">Direkt anrufen</a>
     </div>
     <div class="cta-meta reveal reveal-d3">
       <div class="cta-meta-item">
@@ -1647,14 +1747,108 @@
 <footer>
   <span class="footer-brand">Sandhan Design</span>
   <div class="footer-links">
-    <a href="#">Impressum</a>
-    <a href="#">Datenschutz</a>
+    <a href="#" onclick="openModal('impressum');return false;">Impressum</a>
+    <a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a>
   </div>
   <span>© 2026 Jürgen Westphal · Sandhan Design</span>
 </footer>
 
+<!-- ══ IMPRESSUM MODAL ══════════════════════════ -->
+<div class="modal-overlay" id="modal-impressum" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="modal-title">Impressum</span>
+      <button class="modal-close" onclick="closeModal('impressum')" aria-label="Schließen">&#x2715;</button>
+    </div>
+    <div class="modal-body">
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p class="legal-address">
+        Sandhan Jürgen Westphal<br>
+        Raimundstr. 10 B<br>
+        04177 Leipzig
+      </p>
+      <div class="modal-divider"></div>
+      <h2>Kontakt</h2>
+      <p>
+        Telefon: +49 171 5882385<br>
+        E-Mail: <a href="mailto:sandhan.westphal@gmx.de">sandhan.westphal@gmx.de</a>
+      </p>
+      <div class="modal-divider"></div>
+      <h2>Hinweis zur Beratung</h2>
+      <p>Die angebotenen Leistungen sind keine medizinischen, psychotherapeutischen oder heilpraktischen Behandlungen im Sinne des deutschen Heilmittelgesetzes. Sandhan Jürgen Westphal ist weder Arzt, Psychotherapeut noch Heilpraktiker. Die Beratung basiert auf persönlicher Lebens- und Schulungserfahrung.</p>
+      <div class="modal-divider"></div>
+      <h2>Haftung für Inhalte</h2>
+      <p>Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+      <div class="modal-divider"></div>
+      <h2>Urheberrecht</h2>
+      <p>Die durch den Seitenbetreiber erstellten Inhalte unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung und Verbreitung bedürfen der schriftlichen Zustimmung des Autors.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DATENSCHUTZ MODAL ═════════════════════════ -->
+<div class="modal-overlay" id="modal-datenschutz" onclick="closeModalOutside(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="modal-title">Datenschutzerklärung</span>
+      <button class="modal-close" onclick="closeModal('datenschutz')" aria-label="Schließen">&#x2715;</button>
+    </div>
+    <div class="modal-body">
+      <h2>1. Verantwortlicher</h2>
+      <p class="legal-address">
+        Sandhan Jürgen Westphal<br>
+        Raimundstr. 10 B, 04177 Leipzig<br>
+        Tel.: +49 171 5882385<br>
+        E-Mail: <a href="mailto:sandhan.westphal@gmx.de">sandhan.westphal@gmx.de</a>
+      </p>
+      <div class="modal-divider"></div>
+      <h2>2. Hosting (GitHub Pages)</h2>
+      <p>Diese Website wird über GitHub Pages (GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA – ein Unternehmen von Microsoft) betrieben. Beim Seitenaufruf übermittelt Dein Browser automatisch technische Daten (IP-Adresse, Browsertyp, Zeitstempel) an GitHub-Server. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und verfügbaren Webauftritt). Datenübertragungen in die USA erfolgen auf Basis des EU-US Data Privacy Framework (Angemessenheitsbeschluss der EU-Kommission). Weitere Informationen: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub-Datenschutzerklärung</a>.</p>
+      <div class="modal-divider"></div>
+      <h2>3. Cookies &amp; Tracking</h2>
+      <p>Es werden keine eigenen Cookies gesetzt, kein Tracking durchgeführt und keine Analysedienste eingesetzt.</p>
+      <div class="modal-divider"></div>
+      <h2>4. Kontaktformular</h2>
+      <p>Wenn Du das Kontaktformular nutzt, werden Deine Angaben (Name, E-Mail, Nachricht) ausschließlich zur Bearbeitung Deiner Anfrage verwendet (Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO). Eine Weitergabe an Dritte findet nicht statt. Die Daten werden gelöscht, sobald Deine Anfrage abschließend beantwortet ist, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+      <div class="modal-divider"></div>
+      <h2>5. Schriftarten (Google Fonts)</h2>
+      <p>Diese Website lädt Schriftarten über Google Fonts (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Dabei stellt Dein Browser beim Seitenaufruf eine Verbindung zu Googles Servern her; hierbei kann Deine IP-Adresse übertragen werden. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Datenübertragungen in die USA erfolgen auf Basis des EU-US Data Privacy Framework. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google-Datenschutzerklärung</a>.</p>
+      <div class="modal-divider"></div>
+      <h2>6. Deine Rechte</h2>
+      <p>Du hast gegenüber dem Verantwortlichen folgende Rechte hinsichtlich Deiner personenbezogenen Daten: Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch gegen die Verarbeitung (Art. 21 DSGVO). Bei Beschwerden wende Dich an den <a href="https://www.saechsdsb.de/" target="_blank" rel="noopener">Sächsischen Datenschutzbeauftragten</a>.</p>
+      <div class="modal-divider"></div>
+      <h2>7. Stand</h2>
+      <p>Mai 2026</p>
+    </div>
+  </div>
+</div>
+
 <!-- ══ SCRIPTS ════════════════════════════════════ -->
 <script>
+  // ── Legal Modals ─────────────────────────────
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === e.currentTarget) {
+      e.currentTarget.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+
   // Sticky nav
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
