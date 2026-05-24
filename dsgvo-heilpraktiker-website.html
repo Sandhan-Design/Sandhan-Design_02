@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DSGVO für Heilpraktiker: Art. 9 und warum Standard-Datenschutztexte nicht reichen</title>
+  <meta name="description" content="Heilpraktiker verarbeiten Gesundheitsdaten nach Art. 9 DSGVO — die sensibelste Datenkategorie. Warum Standard-Templates gefährlich sind und was wirklich nötig ist.">
+  <meta name="author" content="Sandhan Jürgen Westphal">
+  <meta name="keywords" content="DSGVO Heilpraktiker, Datenschutz Heilpraktiker Website, Art. 9 DSGVO Gesundheitsdaten, Datenschutzerklärung Heilpraktiker, DSGVO-konforme Website Heilpraktiker">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sandhan-design.com/dsgvo-heilpraktiker-website.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sandhan-design.com/dsgvo-heilpraktiker-website.html">
+  <meta property="og:title" content="DSGVO für Heilpraktiker: Art. 9 und warum Standard-Datenschutztexte nicht reichen">
+  <meta property="og:description" content="Heilpraktiker verarbeiten Gesundheitsdaten nach Art. 9 DSGVO. Standard-Templates sind unzureichend — was wirklich gebraucht wird.">
+  <meta property="og:image" content="https://sandhan-design.com/Sandhan_02.jpg">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Sandhan Design">
+  <meta property="article:published_time" content="2026-05-24">
+  <meta property="article:author" content="Sandhan Jürgen Westphal">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "DSGVO für Heilpraktiker: Art. 9 und warum Standard-Datenschutztexte nicht reichen",
+    "description": "Heilpraktiker verarbeiten Gesundheitsdaten nach Art. 9 DSGVO — die sensibelste Datenkategorie im europäischen Recht. Warum generische Templates gefährlich sind und was eine rechtssichere Datenschutzerklärung für Heilpraktiker braucht.",
+    "datePublished": "2026-05-24",
+    "dateModified": "2026-05-24",
+    "author": {
+      "@type": "Person",
+      "name": "Sandhan Jürgen Westphal",
+      "url": "https://sandhan-design.com/#uber-mich"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sandhan Design",
+      "url": "https://sandhan-design.com"
+    },
+    "mainEntityOfPage": "https://sandhan-design.com/dsgvo-heilpraktiker-website.html",
+    "keywords": ["DSGVO", "Art. 9 DSGVO", "Gesundheitsdaten", "Heilpraktiker Website", "Datenschutzerklärung"],
+    "inLanguage": "de",
+    "image": "https://sandhan-design.com/Sandhan_02.jpg"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --parchment:   #F6F1E7;
+      --cream:       #EDE5D4;
+      --forest:      #2A4840;
+      --forest-mid:  #3A6456;
+      --terra:       #C4713A;
+      --terra-light: #D48B5A;
+      --sage:        #7A9589;
+      --gold:        #B89358;
+      --ink:         #1A1917;
+      --ink-mid:     #4A4844;
+      --ink-light:   #7A7672;
+      --danger:      #8B2020;
+      --danger-bg:   #F9EDED;
+      --ok:          #1E5C38;
+      --ok-bg:       #EAF4EE;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.72;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1000; opacity: 0.5;
+    }
+
+    /* ── NAV ─────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(246,241,231,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(42,72,64,0.1);
+      padding: 1.1rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .nav-brand em { font-style: normal; color: var(--terra); }
+    .nav-back {
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--terra); }
+    .nav-back svg { width: 14px; height: 14px; }
+
+    /* ── HERO / ARTICLE HEADER ───────────────────── */
+    .article-hero {
+      background: var(--forest);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(196,113,58,0.18) 0%, transparent 65%);
+    }
+    .article-hero-inner { position: relative; max-width: 780px; margin: 0 auto; }
+    .article-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terra-light);
+      margin-bottom: 1.4rem;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 400;
+      color: var(--parchment);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.6rem;
+    }
+    .article-title em { font-style: italic; color: var(--terra-light); }
+    .article-meta {
+      font-size: 0.82rem;
+      color: rgba(246,241,231,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+    }
+    .article-meta span { display: flex; align-items: center; gap: 0.35rem; }
+
+    /* ── LAYOUT ──────────────────────────────────── */
+    .article-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* ── TYPOGRAPHY ──────────────────────────────── */
+    .article-wrap p {
+      margin-bottom: 1.5rem;
+      color: var(--ink-mid);
+    }
+    .article-wrap h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+      font-weight: 400;
+      color: var(--forest);
+      line-height: 1.15;
+      margin: 3.2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(42,72,64,0.12);
+    }
+    .article-wrap h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--forest-mid);
+      margin: 2rem 0 0.6rem;
+    }
+    .article-wrap strong { color: var(--ink); font-weight: 500; }
+    .article-wrap a { color: var(--terra); text-decoration: none; border-bottom: 1px solid rgba(196,113,58,0.35); }
+    .article-wrap a:hover { border-bottom-color: var(--terra); }
+    .article-wrap ul, .article-wrap ol {
+      padding-left: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--ink-mid);
+    }
+    .article-wrap li { margin-bottom: 0.5rem; }
+
+    /* ── LEAD PARAGRAPH ──────────────────────────── */
+    .lead {
+      font-size: 1.13rem;
+      line-height: 1.75;
+      color: var(--ink);
+      border-left: 3px solid var(--terra);
+      padding-left: 1.4rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── CALLOUT BOXES ───────────────────────────── */
+    .box {
+      border-radius: 4px;
+      padding: 1.4rem 1.6rem;
+      margin: 2rem 0;
+    }
+    .box-danger {
+      background: var(--danger-bg);
+      border-left: 4px solid var(--danger);
+    }
+    .box-ok {
+      background: var(--ok-bg);
+      border-left: 4px solid var(--ok);
+    }
+    .box-note {
+      background: var(--cream);
+      border-left: 4px solid var(--gold);
+    }
+    .box-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .box-danger .box-title { color: var(--danger); }
+    .box-ok .box-title { color: var(--ok); }
+    .box-note .box-title { color: var(--gold); }
+    .box p { margin-bottom: 0.5rem; color: var(--ink-mid); }
+    .box p:last-child { margin-bottom: 0; }
+
+    /* ── COMPARISON TABLE ────────────────────────── */
+    .compare {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.92rem;
+    }
+    .compare thead tr {
+      background: var(--forest);
+      color: var(--parchment);
+    }
+    .compare thead th {
+      padding: 0.8rem 1rem;
+      text-align: left;
+      font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .compare tbody tr { border-bottom: 1px solid rgba(42,72,64,0.1); }
+    .compare tbody tr:nth-child(even) { background: rgba(237,229,212,0.35); }
+    .compare td {
+      padding: 0.85rem 1rem;
+      vertical-align: top;
+      color: var(--ink-mid);
+      line-height: 1.55;
+    }
+    .compare td:first-child { color: var(--danger); }
+    .compare td:last-child { color: var(--ok); }
+    .compare td.neutral { color: var(--ink-mid); }
+
+    /* ── COST HIGHLIGHT ──────────────────────────── */
+    .cost-block {
+      background: var(--forest);
+      color: var(--parchment);
+      border-radius: 4px;
+      padding: 2rem 2rem;
+      margin: 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .cost-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--terra-light);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .cost-lbl {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: rgba(246,241,231,0.6);
+      text-transform: uppercase;
+    }
+    @media (max-width: 580px) {
+      .cost-block { grid-template-columns: 1fr; text-align: left; }
+    }
+
+    /* ── AUTHOR BOX ──────────────────────────────── */
+    .author-box {
+      display: flex;
+      gap: 1.6rem;
+      align-items: flex-start;
+      background: var(--cream);
+      border-radius: 4px;
+      padding: 1.8rem;
+      margin: 4rem 0 2rem;
+    }
+    .author-img {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      flex-shrink: 0;
+      border: 2px solid rgba(196,113,58,0.3);
+    }
+    .author-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: var(--forest);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    .author-bio { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.6; }
+
+    /* ── CTA SECTION ─────────────────────────────── */
+    .article-cta {
+      background: var(--forest);
+      border-radius: 6px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      margin: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(196,113,58,0.15) 0%, transparent 65%);
+    }
+    .article-cta-inner { position: relative; }
+    .article-cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 400;
+      color: var(--parchment);
+      margin: 0 0 0.8rem;
+      border: none;
+      padding: 0;
+    }
+    .article-cta p {
+      color: rgba(246,241,231,0.7);
+      font-size: 0.95rem;
+      margin-bottom: 1.8rem;
+    }
+    .btn-cta {
+      display: inline-block;
+      background: var(--terra);
+      color: var(--parchment);
+      text-decoration: none;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-cta:hover { background: var(--terra-light); transform: translateY(-1px); border: none; }
+
+    /* ── FAQ ─────────────────────────────────────── */
+    .faq-mini { margin: 3rem 0; }
+    .faq-mini h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      color: var(--forest);
+      font-weight: 400;
+      margin-bottom: 1.4rem;
+      border-bottom: 2px solid rgba(42,72,64,0.12);
+      padding-bottom: 0.5rem;
+    }
+    .faq-item-mini { border-bottom: 1px solid rgba(42,72,64,0.1); }
+    .faq-q-mini {
+      width: 100%; background: none; border: none;
+      padding: 1rem 0;
+      text-align: left;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--forest);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-q-mini:hover { color: var(--terra); }
+    .faq-icon-mini {
+      font-size: 1.3rem;
+      color: var(--terra);
+      flex-shrink: 0;
+      transition: transform 0.25s;
+    }
+    .faq-q-mini[aria-expanded="true"] .faq-icon-mini { transform: rotate(45deg); }
+    .faq-a-mini {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.25s;
+      font-size: 0.92rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+    .faq-a-mini.open { max-height: 400px; padding-bottom: 1rem; }
+
+    /* ── BACK LINK ───────────────────────────────── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      border-bottom: none !important;
+      margin-bottom: 3rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--terra); }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      background: var(--forest);
+      color: rgba(246,241,231,0.5);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.82rem;
+    }
+    footer a { color: rgba(246,241,231,0.6); text-decoration: none; border: none !important; }
+    footer a:hover { color: var(--terra-light); }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: rgba(246,241,231,0.8);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.4rem; }
+      .article-hero { padding: 3.5rem 1.4rem 3rem; }
+      .article-wrap { padding: 2.5rem 1.4rem 4rem; }
+      .article-cta { padding: 2rem 1.4rem; }
+      .author-box { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ════════════════════════════════════════ -->
+<nav>
+  <a href="https://sandhan-design.com/" class="nav-brand">
+    Sandhan<em>.Design</em>
+  </a>
+  <a href="https://sandhan-design.com/" class="nav-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5M12 5l-7 7 7 7"/>
+    </svg>
+    Zur Website
+  </a>
+</nav>
+
+<!-- ══ ARTICLE HERO ══════════════════════════════ -->
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <span class="article-eyebrow">Rechtssicherheit · DSGVO · Datenschutz</span>
+    <h1 class="article-title">
+      DSGVO für Heilpraktiker:<br>
+      Was Art. 9 bedeutet — und warum<br>
+      <em>Standard-Templates nicht reichen.</em>
+    </h1>
+    <div class="article-meta">
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        24. Mai 2026
+      </span>
+      <span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        8 Min. Lesezeit
+      </span>
+      <span>Sandhan Jürgen Westphal</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══ ARTICLE BODY ══════════════════════════════ -->
+<main>
+<article class="article-wrap" itemscope itemtype="https://schema.org/BlogPosting">
+
+  <a href="https://sandhan-design.com/" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    sandhan-design.com
+  </a>
+
+  <p class="lead" itemprop="description">
+    Sobald jemand über dein Kontaktformular schreibt, was ihm fehlt, oder du
+    Erstgespräche per E-Mail führst, verarbeitest du Gesundheitsdaten —
+    die sensibelste Datenkategorie im europäischen Recht. Die Standard-Datenschutzerklärung
+    aus dem WordPress-Plugin oder von eRecht24 erwähnt Art. 9 DSGVO meist
+    mit keinem Wort. Das ist kein Randproblem, sondern ein strukturelles Risiko.
+  </p>
+
+  <!-- ── SECTION 1 ─────────────────────────────── -->
+  <h2>Was ist Art. 9 DSGVO — und warum betrifft er dich?</h2>
+
+  <p>
+    Die Datenschutz-Grundverordnung unterscheidet zwischen normalen
+    personenbezogenen Daten (Name, E-Mail, Adresse) und
+    <strong>besonderen Kategorien</strong>. Letztere genießen besonderen Schutz —
+    weil ihre ungewollte Offenbarung Menschen besonders schaden kann.
+  </p>
+
+  <p>
+    Art. 9 Abs. 1 DSGVO listet diese besonders schützenswerten Kategorien
+    explizit auf: Gesundheitsdaten stehen an erster Stelle, noch vor
+    biometrischen Daten, Religionszugehörigkeit oder politischen Überzeugungen.
+    Für Heilpraktiker, Therapeuten und Coaches bedeutet das:
+  </p>
+
+  <div class="box box-danger">
+    <p class="box-title">Das sind Gesundheitsdaten nach Art. 9 DSGVO</p>
+    <p>Schilderungen von körperlichen oder psychischen Beschwerden im Kontaktformular</p>
+    <p>Informationen über Diagnosen, Erkrankungen oder Medikationen in E-Mails</p>
+    <p>Buchungsanfragen, die den Anlass der Behandlung nennen</p>
+    <p>Aufnahmebögen und Anamnesen — digital oder gescannt</p>
+    <p>Notizen aus Erst- oder Folgegesprächen, die du digital speicherst</p>
+    <p>Fotos von Klienten im therapeutischen Kontext</p>
+  </div>
+
+  <p>
+    Das betrifft nicht nur deine Praxissoftware. Es betrifft deine
+    <strong>Website</strong> — sobald dort ein Kontaktformular steht, über
+    das Klienten beschreiben, warum sie zu dir kommen wollen.
+  </p>
+
+  <!-- ── SECTION 2 ─────────────────────────────── -->
+  <h2>Warum reicht eine Standard-Datenschutzerklärung nicht?</h2>
+
+  <p>
+    Eine generische Datenschutzerklärung — wie sie Generatoren von
+    eRecht24, Datenschutz.org oder das Impressum-Plugin für WordPress
+    ausgeben — deckt typischerweise folgende Punkte ab:
+    Hosting-Anbieter, Google Fonts, Kontaktformular, Cookies, Social-Media-Links.
+  </p>
+
+  <p>
+    Das ist für einen Online-Shop oder ein Dienstleistungsunternehmen
+    ausreichend. Für einen Heilpraktiker fehlt das Entscheidende:
+  </p>
+
+  <table class="compare">
+    <thead>
+      <tr>
+        <th>Standard-Template enthält</th>
+        <th>Was Heilpraktiker zusätzlich brauchen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Allgemeiner Hinweis auf Kontaktformular-Daten</td>
+        <td class="neutral">Explizite Nennung von Art. 9 DSGVO und Gesundheitsdaten als besondere Kategorie</td>
+      </tr>
+      <tr>
+        <td>„Daten werden nicht an Dritte weitergegeben"</td>
+        <td class="neutral">Rechtsgrundlage für die Verarbeitung von Gesundheitsdaten (Art. 9 Abs. 2 lit. a oder h DSGVO)</td>
+      </tr>
+      <tr>
+        <td>Allgemeine Speicherdauer</td>
+        <td class="neutral">Löschkonzept für Behandlungsdaten (GoBD, Aufbewahrungsfristen im Gesundheitswesen)</td>
+      </tr>
+      <tr>
+        <td>Hosting-Angaben</td>
+        <td class="neutral">Nachweis EU-konformes Hosting ohne Drittlandtransfer</td>
+      </tr>
+      <tr>
+        <td>—</td>
+        <td class="neutral">Hinweis auf Schweigepflicht als datenschutzrechtliche Ergänzung</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box box-note">
+    <p class="box-title">Das rechtliche Kernproblem</p>
+    <p>
+      Die Verarbeitung von Gesundheitsdaten ist nach Art. 9 Abs. 1 DSGVO
+      grundsätzlich <strong>verboten</strong> — außer einer der Ausnahmetatbestände
+      in Abs. 2 greift. Ohne explizite Nennung dieser Rechtsgrundlage
+      in deiner Datenschutzerklärung hast du keine dokumentierte
+      Legitimation für die Verarbeitung. Das ist eine Lücke — keine Kleinigkeit.
+    </p>
+  </div>
+
+  <!-- ── SECTION 3 ─────────────────────────────── -->
+  <h2>Das Kontaktformular als Datenschutz-Schwachstelle</h2>
+
+  <p>
+    Das Kontaktformular ist auf jeder Heilpraktiker-Website vorhanden.
+    Es ist auch der häufigste Punkt, an dem Art. 9 DSGVO verletzt wird —
+    oft unbemerkt.
+  </p>
+
+  <h3>Das Problem mit freien Textfeldern</h3>
+  <p>
+    Ein Formular mit einem freien Textfeld wie „Dein Anliegen" oder
+    „Was führt dich zu mir?" lädt Klienten ein, Gesundheitsinformationen
+    einzugeben. Sobald das passiert, verarbeitest du Gesundheitsdaten
+    nach Art. 9 DSGVO — unabhängig davon, ob du das wolltest oder nicht.
+  </p>
+
+  <p>
+    Die Rechtsgrundlage dafür muss <em>vor</em> dem Absenden transparent sein:
+    in einem Pflichtfeld mit Einwilligungserklärung, die explizit auf
+    die Verarbeitung von Gesundheitsdaten hinweist. Ein einfaches
+    „Ich stimme der Datenschutzerklärung zu" ist nicht ausreichend.
+  </p>
+
+  <h3>Korrekte Formulierung der Einwilligung</h3>
+  <div class="box box-ok">
+    <p class="box-title">So könnte eine rechtskonforme Einwilligung aussehen</p>
+    <p>
+      „Ich stimme zu, dass die von mir gemachten Angaben, einschließlich
+      möglicher Gesundheitsinformationen, zur Bearbeitung meiner Anfrage
+      gespeichert und verarbeitet werden. Dies erfolgt gemäß Art. 9 Abs. 2
+      lit. a DSGVO auf Basis meiner ausdrücklichen Einwilligung. Die
+      Einwilligung kann ich jederzeit widerrufen."
+    </p>
+  </div>
+
+  <p>
+    Diese Einwilligung muss als separate, aktiv anzukreuzende Checkbox
+    im Formular erscheinen — nicht vorausgefüllt, nicht in den
+    allgemeinen Datenschutzhinweis integriert.
+  </p>
+
+  <!-- ── SECTION 4 ─────────────────────────────── -->
+  <h2>Hosting: Warum der Serverstandort zählt</h2>
+
+  <p>
+    Viele günstige Hosting-Angebote laufen auf Servern in den USA —
+    oder nutzen US-amerikanische Content-Delivery-Networks. Für
+    normale Websites ist das eine Grauzone. Für Heilpraktiker-Websites
+    mit Gesundheitsdaten ist es ein konkretes Risiko.
+  </p>
+
+  <p>
+    Der Grund: Art. 44 ff. DSGVO regelt den Datentransfer in sogenannte
+    „Drittländer" — also Staaten außerhalb der EU/EWR. Für die USA existiert
+    seit dem Schrems-II-Urteil (EuGH 2020) und dem anschließenden
+    EU-US-Data-Privacy-Framework-Abkommen eine Übergangsregelung, aber
+    rechtliche Unsicherheit bleibt.
+  </p>
+
+  <div class="box box-note">
+    <p class="box-title">Konkret für Heilpraktiker</p>
+    <p>
+      Hosting in Deutschland oder der EU vermeidet diese Unsicherheit vollständig.
+      Für Gesundheitsdaten — die sensibelste Datenkategorie — ist EU-Hosting
+      die einzig wirklich risikofreie Wahl. Das gilt auch für deinen
+      E-Mail-Anbieter, wenn du über E-Mail Anfragen mit Gesundheitsbezug
+      empfängst.
+    </p>
+  </div>
+
+  <p>
+    Kritisch sind auch diese oft übersehenen Dienste auf Heilpraktiker-Websites:
+  </p>
+
+  <ul>
+    <li><strong>Google Fonts (direkt eingebunden):</strong> Überträgt IP-Adressen an Google-Server in den USA — abmahnfähig seit LG München 2022</li>
+    <li><strong>Google Analytics / Meta Pixel:</strong> Profiling-Dienste, die ohne explizite Einwilligung nicht auf Heilpraktiker-Websites gehören</li>
+    <li><strong>Kalender-Tools (Calendly, Acuity):</strong> US-Anbieter, die Buchungsdaten einschließlich Anfragetext auf US-Servern speichern</li>
+    <li><strong>WhatsApp Business:</strong> Ende-zu-Ende-verschlüsselt, aber Metadaten fließen in die Meta-Infrastruktur</li>
+  </ul>
+
+  <!-- ── SECTION 5 ─────────────────────────────── -->
+  <h2>Was droht bei DSGVO-Verstößen?</h2>
+
+  <p>
+    DSGVO-Verstöße werden seit 2018 geahndet — und die Aufsichtsbehörden
+    sind aktiver geworden. Für kleine Praxen und Einzelpersonen bleiben
+    die Bußgelder überschaubar, aber Abmahnungen durch Mitbewerber
+    oder Verbraucherschutzverbände sind jederzeit möglich.
+  </p>
+
+  <div class="cost-block">
+    <div>
+      <span class="cost-num">bis zu</span>
+      <span class="cost-num" style="margin-top:-0.2rem;">20 Mio. €</span>
+      <span class="cost-lbl">DSGVO-Bußgeld (Art. 83 DSGVO)</span>
+    </div>
+    <div>
+      <span class="cost-num">500 –</span>
+      <span class="cost-num" style="margin-top:-0.2rem;">3.000 €</span>
+      <span class="cost-lbl">typische Abmahnkosten für Kleinbetriebe</span>
+    </div>
+    <div>
+      <span class="cost-num">100 –</span>
+      <span class="cost-num" style="margin-top:-0.2rem;">1.000 €</span>
+      <span class="cost-lbl">Schadensersatz je Betroffenen (Art. 82 DSGVO)</span>
+    </div>
+  </div>
+
+  <p>
+    Hinzu kommt: Jeder Betroffene — also jeder Klient, der jemals
+    Daten über deine Website übermittelt hat — hat ein Auskunftsrecht
+    (Art. 15 DSGVO), ein Recht auf Löschung (Art. 17 DSGVO) und ein
+    Recht auf Datenübertragbarkeit (Art. 20 DSGVO). Wer keine
+    saubere Dokumentation hat, kann diese Ansprüche kaum erfüllen.
+  </p>
+
+  <!-- ── SECTION 6 ─────────────────────────────── -->
+  <h2>Was eine vollständige DSGVO-Lösung für Heilpraktiker enthält</h2>
+
+  <p>
+    Eine wirklich DSGVO-konforme Heilpraktiker-Website braucht mehr
+    als einen generierten Text. Sie braucht ein durchdachtes System:
+  </p>
+
+  <div class="box box-ok">
+    <p class="box-title">Checkliste — DSGVO-konforme Heilpraktiker-Website</p>
+    <p>✓ Datenschutzerklärung mit explizitem Art. 9-Baustein (Gesundheitsdaten als besondere Kategorie)</p>
+    <p>✓ Nennung der Rechtsgrundlage für Gesundheitsdatenverarbeitung (Art. 9 Abs. 2 DSGVO)</p>
+    <p>✓ Kontaktformular mit separater, aktiver Einwilligung für Gesundheitsdaten</p>
+    <p>✓ EU-Hosting — nachweislich in Deutschland oder EU, kein US-Drittlandtransfer</p>
+    <p>✓ Google Fonts selbst gehostet (kein direkter Google-Aufruf)</p>
+    <p>✓ Kein Tracking ohne Einwilligung (kein Google Analytics, kein Meta Pixel)</p>
+    <p>✓ Cookie-Hinweis nur wenn technisch nötig — keine Cookie-Banner als „Alibi"</p>
+    <p>✓ Löschkonzept für Kontaktanfragen und Buchungsdaten dokumentiert</p>
+    <p>✓ Impressum nach § 5 DDG vollständig (inkl. zuständige Aufsichtsbehörde)</p>
+    <p>✓ Verarbeitungsverzeichnis nach Art. 30 DSGVO geführt</p>
+  </div>
+
+  <!-- ── SECTION 7 ─────────────────────────────── -->
+  <h2>Cookies und Tracking — was wirklich erlaubt ist</h2>
+
+  <p>
+    Die meisten Heilpraktiker-Websites brauchen keinen großen Cookie-Banner.
+    Sie brauchen ein klares Konzept. Der Unterschied:
+  </p>
+
+  <p>
+    <strong>Technisch notwendige Cookies</strong> (Sitzung, Formular-Schutz, Spracheinstellung)
+    dürfen ohne Einwilligung gesetzt werden. Sie brauchen einen Hinweis, aber
+    keinen aktiven Opt-in.
+  </p>
+
+  <p>
+    <strong>Analyse- und Marketing-Cookies</strong> (Google Analytics, Meta Pixel,
+    Hotjar, LinkedIn Insight Tag) erfordern eine aktive, freiwillige Einwilligung
+    <em>vor</em> dem Setzen des Cookies. Ein Banner, der Nutzern die Ablehnung
+    schwer macht oder gar versteckt, ist seit dem EuGH-Urteil (Planet49, 2019)
+    unzulässig.
+  </p>
+
+  <div class="box box-note">
+    <p class="box-title">Mein Rat für Heilpraktiker</p>
+    <p>
+      Verzichte auf Tracking-Tools, die eine Einwilligung erfordern.
+      Du brauchst kein Google Analytics, um zu wissen, ob deine Website
+      funktioniert. Die Anzahl der Erstgespräch-Anfragen ist ein deutlicheres
+      Signal als jede Bounce-Rate. Weniger Tracking bedeutet weniger
+      Rechtsrisiko — und mehr Vertrauen bei Klienten, die sensibler mit
+      ihrer Privatsphäre umgehen.
+    </p>
+  </div>
+
+  <!-- ── FAQ ───────────────────────────────────── -->
+  <div class="faq-mini" itemscope itemtype="https://schema.org/FAQPage">
+
+    <h2>Häufige Fragen zur DSGVO für Heilpraktiker</h2>
+
+    <div class="faq-item-mini" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <button class="faq-q-mini" itemprop="name" aria-expanded="false" onclick="toggleFaqMini(this)">
+        Bin ich als Einzelperson überhaupt DSGVO-pflichtig?
+        <span class="faq-icon-mini">+</span>
+      </button>
+      <div class="faq-a-mini" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Ja. Die DSGVO gilt für jeden, der personenbezogene Daten von natürlichen Personen verarbeitet — unabhängig von Betriebsgröße oder Rechtsform. Als selbstständiger Heilpraktiker mit einer Website bist du vollumfänglich DSGVO-pflichtig. Die einzige Ausnahme gilt für rein private, nicht berufliche Nutzung.</p>
+      </div>
+    </div>
+
+    <div class="faq-item-mini" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <button class="faq-q-mini" itemprop="name" aria-expanded="false" onclick="toggleFaqMini(this)">
+        Reicht die kostenlose Datenschutzerklärung von eRecht24?
+        <span class="faq-icon-mini">+</span>
+      </button>
+      <div class="faq-a-mini" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Für eine normale Dienstleistungswebsite ja, mit Einschränkungen. Für Heilpraktiker nein. Das eRecht24-Template enthält keinen Baustein für die Verarbeitung von Gesundheitsdaten nach Art. 9 DSGVO und keine spezifische Rechtsgrundlage für die Gesundheitsdatenverarbeitung. Diese Lücke muss von Hand ergänzt werden — was einen Fachanwalt oder eine spezialisierte Agentur erfordert.</p>
+      </div>
+    </div>
+
+    <div class="faq-item-mini" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <button class="faq-q-mini" itemprop="name" aria-expanded="false" onclick="toggleFaqMini(this)">
+        Muss ich ein Verarbeitungsverzeichnis führen?
+        <span class="faq-icon-mini">+</span>
+      </button>
+      <div class="faq-a-mini" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Nach Art. 30 Abs. 5 DSGVO sind Unternehmen mit weniger als 250 Mitarbeitern von der Verzeichnispflicht ausgenommen — aber nur, wenn die Verarbeitung kein Risiko für Betroffene birgt und keine besonderen Datenkategorien betroffen sind. Da Heilpraktiker Gesundheitsdaten (Art. 9 DSGVO) verarbeiten, gilt die Ausnahme nicht. Ein Verarbeitungsverzeichnis ist Pflicht.</p>
+      </div>
+    </div>
+
+    <div class="faq-item-mini" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+      <button class="faq-q-mini" itemprop="name" aria-expanded="false" onclick="toggleFaqMini(this)">
+        Was ist mit meiner Praxissoftware und digitalen Akten?
+        <span class="faq-icon-mini">+</span>
+      </button>
+      <div class="faq-a-mini" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+        <p itemprop="text">Praxissoftware fällt nicht unter deine Website-Datenschutzerklärung — sie braucht eigene Verarbeitungsgrundlagen und ggf. einen Auftragsverarbeitungsvertrag (AVV) mit dem Softwareanbieter nach Art. 28 DSGVO. Das ist ein separates Thema, das du mit deinem Softwareanbieter klären solltest. Für die Website gilt: Trenne sauber zwischen Website-Daten und Behandlungsdaten.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── AUTHOR BOX ─────────────────────────────── -->
+  <div class="author-box">
+    <img src="Sandhan_02.jpg" alt="Sandhan Jürgen Westphal" class="author-img">
+    <div>
+      <div class="author-name">Sandhan Jürgen Westphal</div>
+      <p class="author-bio">
+        Webdesigner für Heilpraktiker, Coaches und Therapeuten im DACH-Raum.
+        Alle Websites entstehen mit vollständiger DSGVO-Dokumentation —
+        inklusive Art. 9 DSGVO-Baustein, EU-Hosting und rechtssicherem Kontaktformular.
+        Standardmäßig, ohne Aufpreis.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── CTA ───────────────────────────────────── -->
+  <div class="article-cta">
+    <div class="article-cta-inner">
+      <h2>DSGVO-konform von Anfang an — nicht nachträglich.</h2>
+      <p>
+        Im kostenlosen Erstgespräch schauen wir gemeinsam, ob und wie
+        ich dir helfen kann. Kein Druck, keine Verpflichtung.
+      </p>
+      <a href="mailto:sandhan.westphal@gmx.de" class="btn-cta">Kostenloses Erstgespräch anfragen</a>
+    </div>
+  </div>
+
+</article>
+</main>
+
+<!-- ══ FOOTER ═════════════════════════════════════ -->
+<footer>
+  <span class="footer-brand">Sandhan Design</span>
+  <p>© 2026 Jürgen Westphal · <a href="https://sandhan-design.com/">sandhan-design.com</a></p>
+  <p style="margin-top:0.4rem;font-size:0.75rem;">
+    Dieser Artikel dient der allgemeinen Information und ersetzt keine Rechtsberatung.
+    Bei konkreten Fragen zur DSGVO-Konformität empfiehlt sich die Beratung durch einen Fachanwalt für IT-Recht oder Datenschutz.
+  </p>
+</footer>
+
+<script>
+  function toggleFaqMini(btn) {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-q-mini').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+      btn.setAttribute('aria-expanded', 'true');
+      btn.nextElementSibling.classList.add('open');
+    }
+  }
+</script>
+
+</body>
+</html>
