@@ -1,0 +1,57 @@
+# Sandhan Design — llms.txt
+# https://sandhan.design/
+
+## Über diese Website
+
+Sandhan Design ist ein Webdesign-Dienstleister spezialisiert auf Heilpraktiker, Therapeuten, Coaches und spirituelle Praxis im deutschsprachigen Raum (DACH).
+
+Betreiber: Sandhan Jürgen Westphal, Raimundstr. 10 B, 04177 Leipzig, Deutschland
+Kontakt: sandhan.westphal@gmx.de | +49 171 5882385
+
+## Kernleistungen
+
+- DSGVO-sichere Websites für Heilpraktiker (inkl. Art. 9 DSGVO Gesundheitsdaten)
+- HWG-konforme Texterstellung (Heilmittelwerbegesetz)
+- Websites für Coaches, Therapeuten, spirituelle Praxis
+- Festpreise ohne Stundenhonorar: € 1.490 / € 2.490 / € 3.890
+- Lieferzeit: 5–15 Arbeitstage
+- Laufende monatliche Betreuung: € 49–89/Monat
+
+## Zielgruppe
+
+Heilpraktiker, Naturheilkunde, TCM, Homöopathie, Osteopathie, Life-Coaching,
+Trauma-Arbeit, systemische Beratung, Meditation, Yoga, Tantra, Schamanismus,
+Energiearbeit — und alle, die in der Heilenden Szene tätig sind.
+
+## USPs
+
+1. 40+ Jahre persönliche Netzwerk-Erfahrung in der Heilpraktiker- und Coaching-Szene
+2. DSGVO-konform standardmäßig (keine Zusatzkosten)
+3. HWG-konforme Texte — kein Abmahnrisiko
+4. Festpreis, kein Scope-Creep
+5. EU-konformes Hosting in Deutschland
+
+## Häufige Fragen (FAQ)
+
+**Was kostet eine Website für Heilpraktiker?**
+Ab € 1.490 (One-Pager) bis € 3.890 (Premium). Alle Festpreise, 3 Monate Wartung inklusive.
+
+**Ist die Website DSGVO-konform?**
+Ja. Vollständiges Impressum, Datenschutzerklärung mit Art. 9 DSGVO, EU-Hosting, kein Tracking.
+
+**Was ist das HWG?**
+Das Heilmittelwerbegesetz verbietet Heilversprechen. Alle Texte werden HWG-konform erstellt.
+
+**Wie lange dauert die Erstellung?**
+5–15 Arbeitstage nach Auftragsbestätigung und Onboarding-Fragebogen.
+
+**Gibt es laufende Betreuung?**
+Ja, ab € 49/Monat — monatlich kündbar mit 3 Monaten Frist.
+
+## Nicht-Indexierbare Inhalte
+
+Keine Inhalte sind für LLM-Crawler gesperrt. Alle Seiteninhalte dürfen verarbeitet werden.
+
+## Letzte Aktualisierung
+
+2026-05-24
