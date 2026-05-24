@@ -1065,6 +1065,104 @@
     }
 
     /* ══════════════════════════════════════════════
+       BLOG / WISSEN
+    ══════════════════════════════════════════════ */
+    .blog-section { background: var(--parchment); }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .blog-card {
+      background: var(--cream);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(42,72,64,0.1);
+    }
+    .blog-card-top {
+      background: var(--forest);
+      padding: 2rem 1.8rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-card-top::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 0% 0%, rgba(196,113,58,0.14) 0%, transparent 60%);
+    }
+    .blog-card-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terra-light);
+      font-family: 'DM Sans', sans-serif;
+      margin-bottom: 0.9rem;
+      position: relative; z-index: 1;
+    }
+    .blog-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: var(--parchment);
+      line-height: 1.15;
+      position: relative; z-index: 1;
+    }
+    .blog-card-body {
+      padding: 1.6rem 1.8rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .blog-card-excerpt {
+      font-size: 0.88rem;
+      color: var(--ink-mid);
+      line-height: 1.68;
+      flex: 1;
+    }
+    .blog-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--ink-light);
+    }
+    .blog-card-read {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--terra);
+      font-weight: 500;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+    .blog-card-read svg {
+      transition: transform 0.2s;
+    }
+    .blog-card:hover .blog-card-read svg {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 900px) {
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 580px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════════════════════
        CTA / CONTACT
     ══════════════════════════════════════════════ */
     .cta-section {
@@ -1398,6 +1496,7 @@
     <li><a href="#pakete">Pakete</a></li>
     <li><a href="#prozess">Ablauf</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li><a href="#wissen">Wissen</a></li>
     <li><a href="#uber-mich">Über mich</a></li>
     <li><a href="mailto:sandhan.westphal@gmx.de" class="nav-cta">Erstgespräch</a></li>
   </ul>
@@ -1995,6 +2094,85 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BLOG / WISSEN ═════════════════════════════ -->
+<section class="blog-section section" id="wissen">
+  <div class="inner">
+    <span class="eyebrow reveal">Wissen</span>
+    <h2 class="section-title reveal" style="font-size: clamp(2.2rem,3.8vw,3.8rem);">Was du wissen solltest —<br>bevor du anfängst.</h2>
+    <p class="section-sub reveal reveal-d1">
+      Drei Artikel für Heilpraktiker, die eine rechtssichere Website planen.
+      Kein Marketing — nur das, was wirklich wichtig ist.
+    </p>
+
+    <div class="blog-grid">
+
+      <!-- Card 1: HWG -->
+      <a href="hwg-heilpraktiker-website.html" class="blog-card reveal reveal-d1">
+        <div class="blog-card-top">
+          <span class="blog-card-tag">Rechtssicherheit · HWG</span>
+          <h3 class="blog-card-title">HWG & Heilpraktiker-Website: Was erlaubt ist — und was eine Abmahnung kostet.</h3>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-card-excerpt">
+            Die meisten Heilpraktiker-Websites verstoßen gegen das Heilmittelwerbegesetz —
+            ohne es zu wissen. Verbotene Formulierungen, reale Kosten und wie du dich schützt.
+          </p>
+          <div class="blog-card-footer">
+            <span>7 Min. Lesezeit</span>
+            <span class="blog-card-read">
+              Lesen
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2: DSGVO -->
+      <a href="dsgvo-heilpraktiker-website.html" class="blog-card reveal reveal-d2">
+        <div class="blog-card-top">
+          <span class="blog-card-tag">Datenschutz · DSGVO</span>
+          <h3 class="blog-card-title">DSGVO für Heilpraktiker: Was Art. 9 bedeutet — und warum Standard-Templates nicht reichen.</h3>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-card-excerpt">
+            Jedes Kontaktformular verarbeitet Gesundheitsdaten nach Art. 9 DSGVO —
+            der sensibelsten Datenkategorie im EU-Recht. Was das konkret bedeutet und was fehlt.
+          </p>
+          <div class="blog-card-footer">
+            <span>8 Min. Lesezeit</span>
+            <span class="blog-card-read">
+              Lesen
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3: Kosten -->
+      <a href="kosten-heilpraktiker-website.html" class="blog-card reveal reveal-d3">
+        <div class="blog-card-top">
+          <span class="blog-card-tag">Preise · Planung</span>
+          <h3 class="blog-card-title">Was kostet eine Heilpraktiker-Website? Preisvergleich — und warum Stundenhonorare gefährlich sind.</h3>
+        </div>
+        <div class="blog-card-body">
+          <p class="blog-card-excerpt">
+            Vom Baukastensystem bis zur Agentur: was du wirklich zahlst, wo Scope Creep
+            entsteht — und warum ein Festpreis für Heilpraktiker die klügere Wahl ist.
+          </p>
+          <div class="blog-card-footer">
+            <span>8 Min. Lesezeit</span>
+            <span class="blog-card-read">
+              Lesen
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
