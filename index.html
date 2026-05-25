@@ -1659,11 +1659,10 @@
   <ul class="nav-links">
     <li><a href="#fur-wen">Für wen</a></li>
     <li><a href="#pakete">Pakete</a></li>
-    <li><a href="#prozess">Ablauf</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#wissen">Wissen</a></li>
     <li><a href="#uber-mich">Über mich</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#wissen">Wissen</a></li>
     <li><a href="mailto:sandhan.westphal@gmx.de" class="nav-cta">Erstgespräch</a></li>
   </ul>
 </nav>
@@ -2667,6 +2666,16 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(el => io.observe(el));
+
+  // Fallback: reveal elements already in viewport on load (e.g. via hash anchor)
+  requestAnimationFrame(() => {
+    reveals.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.95 && r.bottom > 0) {
+        el.classList.add('in');
+      }
+    });
+  });
 
   // ── Full-size Sphere Window ──────────────────────
   function openSphereWindow() {
