@@ -1324,6 +1324,143 @@
     }
 
     /* ══════════════════════════════════════════════
+       SERVICE / DOWNLOADS
+    ══════════════════════════════════════════════ */
+    .service-section {
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .service-section .eyebrow { color: var(--terra); }
+    .service-section .section-title { color: var(--parchment); }
+    .service-section .section-sub { color: rgba(246,241,231,0.65); }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-top: 3.5rem;
+    }
+
+    .srv-card {
+      background: var(--parchment);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .srv-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.28);
+    }
+
+    .srv-card-top {
+      background: var(--cream);
+      padding: 1.8rem 1.8rem 1.4rem;
+      position: relative;
+    }
+    .srv-card-top::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 1.8rem; right: 1.8rem;
+      height: 1px;
+      background: rgba(42,72,64,0.1);
+    }
+
+    .srv-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--terra);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+      margin-bottom: 1.1rem;
+    }
+    .srv-badge svg { flex-shrink: 0; }
+
+    .srv-card-icon {
+      width: 40px;
+      height: 48px;
+      margin-bottom: 1rem;
+    }
+
+    .srv-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--forest);
+      line-height: 1.25;
+    }
+
+    .srv-card-body {
+      padding: 1.4rem 1.8rem 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .srv-desc {
+      font-size: 0.84rem;
+      color: var(--ink-mid);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .srv-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .srv-chip {
+      font-size: 0.7rem;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink-light);
+      background: var(--cream);
+      padding: 0.18rem 0.6rem;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    .srv-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--forest);
+      color: var(--parchment);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 1.2rem;
+      border-radius: 3px;
+      transition: background 0.2s, gap 0.2s;
+    }
+    .srv-btn:hover {
+      background: var(--terra);
+      gap: 0.75rem;
+    }
+    .srv-btn svg { flex-shrink: 0; transition: transform 0.2s; }
+    .srv-btn:hover svg { transform: translateY(1px); }
+
+    @media (max-width: 900px) { .service-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 580px) { .service-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════════════
        CTA / CONTACT
     ══════════════════════════════════════════════ */
     .cta-section {
@@ -1663,6 +1800,7 @@
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#wissen">Wissen</a></li>
+    <li><a href="#service">Service</a></li>
     <li><a href="mailto:sandhan.westphal@gmx.de" class="nav-cta">Erstgespräch</a></li>
   </ul>
 </nav>
@@ -2485,6 +2623,130 @@
           </div>
         </div>
       </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICE / DOWNLOADS ════════════════════════ -->
+<section class="service-section section" id="service">
+  <div class="inner">
+    <span class="eyebrow reveal">Kostenlose Ressourcen</span>
+    <h2 class="section-title reveal" style="font-size: clamp(2.2rem,3.8vw,3.8rem); color: var(--parchment);">Service.</h2>
+    <p class="section-sub reveal reveal-d1" style="color: rgba(246,241,231,0.65);">
+      Drei Werkzeuge für Heilpraktiker, Coaches und Therapeuten — kostenlos,
+      sofort nutzbar, ohne E-Mail-Adresse.
+    </p>
+
+    <div class="service-grid">
+
+      <!-- Karte 1: DSGVO-Checkliste -->
+      <div class="srv-card reveal reveal-d1">
+        <div class="srv-card-top">
+          <span class="srv-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            PDF · 1 Seite · Checkliste
+          </span>
+          <svg class="srv-card-icon" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="28" height="36" rx="2" fill="#EDE5D4" stroke="#2A4840" stroke-width="1.5"/>
+            <rect x="8" y="9" width="16" height="2" rx="1" fill="#7A9589"/>
+            <rect x="8" y="14" width="12" height="2" rx="1" fill="#7A9589"/>
+            <rect x="8" y="19" width="14" height="2" rx="1" fill="#7A9589"/>
+            <rect x="8" y="24" width="10" height="2" rx="1" fill="#7A9589"/>
+            <circle cx="30" cy="38" r="10" fill="#C4713A"/>
+            <path d="M25 38l3.5 3.5L35 34" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="srv-title">DSGVO-Checkliste für Heilpraktiker-Websites</h3>
+        </div>
+        <div class="srv-card-body">
+          <p class="srv-desc">
+            17 Punkte in 6 Kategorien — von Impressum über Art. 9 DSGVO bis
+            Google Fonts und Hosting. Einmal ehrlich durchgehen und Lücken
+            mit Abmahnrisiko sofort erkennen.
+          </p>
+          <div class="srv-meta">
+            <span class="srv-chip">17 Checkboxen</span>
+            <span class="srv-chip">DSGVO / Art. 9</span>
+            <span class="srv-chip">3 Min.</span>
+          </div>
+          <a href="Sandhan-Design_DSGVO-Checkliste.pdf" download class="srv-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Kostenlos herunterladen
+          </a>
+        </div>
+      </div>
+
+      <!-- Karte 2: HWG-Formulierungen -->
+      <div class="srv-card reveal reveal-d2">
+        <div class="srv-card-top">
+          <span class="srv-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            PDF · 2 Seiten · Swipe File
+          </span>
+          <svg class="srv-card-icon" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="28" height="36" rx="2" fill="#EDE5D4" stroke="#2A4840" stroke-width="1.5"/>
+            <rect x="7" y="9" width="18" height="2.5" rx="1" fill="#C0392B" opacity="0.5"/>
+            <rect x="7" y="14" width="18" height="2.5" rx="1" fill="#2E7D51" opacity="0.6"/>
+            <rect x="7" y="19" width="18" height="2.5" rx="1" fill="#C0392B" opacity="0.5"/>
+            <rect x="7" y="24" width="18" height="2.5" rx="1" fill="#2E7D51" opacity="0.6"/>
+            <circle cx="30" cy="38" r="10" fill="#C4713A"/>
+            <text x="30" y="42" font-family="Georgia,serif" font-size="11" fill="white" text-anchor="middle" font-weight="400">T</text>
+          </svg>
+          <h3 class="srv-title">40 HWG-konforme Formulierungen — Swipe File</h3>
+        </div>
+        <div class="srv-card-body">
+          <p class="srv-desc">
+            Was darf ich schreiben — und was nicht? 40 fertige Formulierungen
+            in 6 Kategorien: Behandlungen, Methoden, Erfolge, Über-mich,
+            Testimonials, Social Media. Direkt kopieren und anpassen.
+          </p>
+          <div class="srv-meta">
+            <span class="srv-chip">40 Formulierungen</span>
+            <span class="srv-chip">HWG-konform</span>
+            <span class="srv-chip">6 Kategorien</span>
+          </div>
+          <a href="Sandhan-Design_HWG-Formulierungen.pdf" download class="srv-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Kostenlos herunterladen
+          </a>
+        </div>
+      </div>
+
+      <!-- Karte 3: Website-Selbstcheck -->
+      <div class="srv-card reveal reveal-d3">
+        <div class="srv-card-top">
+          <span class="srv-badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            PDF · 1 Seite · Scoring
+          </span>
+          <svg class="srv-card-icon" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="28" height="36" rx="2" fill="#EDE5D4" stroke="#2A4840" stroke-width="1.5"/>
+            <rect x="7" y="9" width="18" height="3" rx="1" fill="#2A4840" opacity="0.15"/>
+            <rect x="7" y="14" width="14" height="3" rx="1" fill="#2A4840" opacity="0.15"/>
+            <rect x="7" y="19" width="16" height="3" rx="1" fill="#2A4840" opacity="0.15"/>
+            <rect x="7" y="24" width="10" height="3" rx="1" fill="#C4713A" opacity="0.6"/>
+            <circle cx="30" cy="38" r="10" fill="#C4713A"/>
+            <text x="30" y="43" font-family="Georgia,serif" font-size="13" fill="white" text-anchor="middle" font-weight="400">40</text>
+          </svg>
+          <h3 class="srv-title">Website-Selbstcheck — 40 Punkte, 10 Minuten</h3>
+        </div>
+        <div class="srv-card-body">
+          <p class="srv-desc">
+            Wie gut ist deine Website wirklich? 5 Kategorien, 20 Fragen,
+            Scoring 0–2 je Punkt. Das Ergebnis zeigt dir genau, wo der
+            größte Hebel liegt — bevor du Geld in eine neue Seite steckst.
+          </p>
+          <div class="srv-meta">
+            <span class="srv-chip">40 Punkte</span>
+            <span class="srv-chip">5 Kategorien</span>
+            <span class="srv-chip">10 Min.</span>
+          </div>
+          <a href="Sandhan-Design_Website-Selbstcheck.pdf" download class="srv-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Kostenlos herunterladen
+          </a>
+        </div>
+      </div>
 
     </div>
   </div>
