@@ -2942,10 +2942,9 @@
 
   // ── Full-size Sphere Window ──────────────────────
   function openSphereWindow() {
-    // Opens the companion sphere page (sandhan-sphere.html + sandhan-mandala.wav
-    // must sit in the same folder as this file)
+    const sw = screen.availWidth, sh = screen.availHeight;
     window.open('sandhan-sphere.html', 'SandhanSphere',
-      'width=960,height=980,menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=no');
+      `width=${sw},height=${sh},left=0,top=0,menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=no`);
     return;
     // ── legacy inline fallback (kept for reference, not executed) ──
     const html = `<!DOCTYPE html>
