@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website-Selbstcheck — Sandhan Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --forest:   #2A4840;
+    --terra:    #C4713A;
+    --parchment:#F6F1E7;
+    --cream:    #EDE5D4;
+    --ink:      #1A1917;
+    --ink-mid:  #4A4745;
+    --ink-light:#7A7673;
+    --sage:     #7A9589;
+  }
+  html, body {
+    width: 210mm;
+    background: var(--parchment);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 13mm 15mm 14mm;
+    background: var(--parchment);
+    position: relative;
+    page-break-after: always;
+  }
+
+  /* HEADER */
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 7mm;
+    border-bottom: 2px solid var(--terra);
+    margin-bottom: 6mm;
+  }
+  .eyebrow {
+    font-size: 6.5pt;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terra);
+    display: block;
+    margin-bottom: 2mm;
+  }
+  .doc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21pt;
+    font-weight: 400;
+    color: var(--forest);
+    line-height: 1.15;
+  }
+  .doc-sub { font-size: 8pt; color: var(--ink-mid); margin-top: 2mm; }
+  .logo-mark { width: 13mm; height: 13mm; flex-shrink: 0; }
+
+  /* INTRO */
+  .intro-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4mm;
+    margin-bottom: 5mm;
+  }
+  .intro-box {
+    background: var(--forest);
+    color: rgba(255,255,255,0.9);
+    border-radius: 3px;
+    padding: 4mm 5mm;
+    font-size: 8pt;
+    line-height: 1.6;
+  }
+  .intro-box strong { color: var(--terra); }
+  .score-box {
+    background: var(--terra);
+    color: #fff;
+    border-radius: 3px;
+    padding: 4mm 5mm;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 32mm;
+  }
+  .score-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28pt;
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+  }
+  .score-label {
+    font-size: 6.5pt;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+    margin-top: 1mm;
+    text-transform: uppercase;
+  }
+  .score-hint {
+    font-size: 7pt;
+    opacity: 0.75;
+    margin-top: 1.5mm;
+    line-height: 1.3;
+  }
+
+  /* SCORING INSTRUCTIONS */
+  .scoring-row {
+    display: flex;
+    gap: 2mm;
+    margin-bottom: 5mm;
+  }
+  .score-pill {
+    display: flex;
+    align-items: center;
+    gap: 1.5mm;
+    background: var(--cream);
+    border-radius: 2px;
+    padding: 1.5mm 3mm;
+    font-size: 7.5pt;
+  }
+  .score-pill .dot {
+    width: 4mm; height: 4mm; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6pt; font-weight: 500; color: #fff;
+  }
+  .dot-0 { background: var(--ink-light); }
+  .dot-1 { background: var(--sage); }
+  .dot-2 { background: var(--forest); }
+
+  /* BLOCKS */
+  .blocks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-bottom: 5mm;
+  }
+  .block { background: var(--cream); border-radius: 3px; overflow: hidden; }
+  .block-header {
+    background: var(--forest);
+    color: #fff;
+    padding: 2.5mm 4mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .block-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10.5pt;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+  }
+  .block-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 5mm; height: 5mm;
+    background: var(--terra);
+    border-radius: 50%;
+    font-size: 6.5pt;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    flex-shrink: 0;
+  }
+  .block-max {
+    font-size: 7pt;
+    color: rgba(255,255,255,0.6);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .block-items { padding: 2mm 0; }
+
+  /* CHECK ITEMS WITH SCORE BOXES */
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 2mm;
+    padding: 2mm 3.5mm;
+    border-bottom: 1px solid rgba(42,72,64,0.06);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .score-input {
+    display: flex;
+    gap: 1mm;
+    flex-shrink: 0;
+    margin-top: 0.3mm;
+  }
+  .s-box {
+    width: 4.5mm; height: 4.5mm;
+    border: 1px solid rgba(42,72,64,0.3);
+    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5.5pt;
+    color: var(--ink-light);
+    background: rgba(255,255,255,0.6);
+  }
+  .check-text {
+    font-size: 7.8pt;
+    color: var(--ink);
+    line-height: 1.4;
+    flex: 1;
+  }
+  .check-text em {
+    font-style: normal;
+    font-size: 7pt;
+    color: var(--ink-light);
+    display: block;
+    margin-top: 0.3mm;
+  }
+
+  /* TOTAL SCORE */
+  .total-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2mm;
+    padding: 1.5mm 3.5mm;
+    background: rgba(42,72,64,0.06);
+  }
+  .total-label { font-size: 7pt; color: var(--ink-mid); }
+  .total-boxes {
+    display: flex;
+    align-items: center;
+    gap: 1mm;
+  }
+  .total-input {
+    width: 8mm; height: 5mm;
+    border: 1px solid rgba(42,72,64,0.3);
+    border-radius: 1px;
+    background: #fff;
+  }
+  .total-sep { font-size: 7pt; color: var(--ink-light); }
+  .total-max { font-size: 7pt; color: var(--ink-mid); font-weight: 500; }
+
+  /* RESULT TABLE */
+  .result-section { margin-bottom: 5mm; }
+  .result-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 2.5mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px solid var(--cream);
+  }
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5mm;
+  }
+  .result-card {
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .result-card .rc-score {
+    padding: 2mm 2.5mm;
+    font-weight: 500;
+    font-size: 8pt;
+    color: #fff;
+    text-align: center;
+  }
+  .result-card:nth-child(1) .rc-score { background: #2E7D51; }
+  .result-card:nth-child(2) .rc-score { background: var(--sage); }
+  .result-card:nth-child(3) .rc-score { background: var(--terra); }
+  .result-card:nth-child(4) .rc-score { background: #8B2500; }
+  .result-card .rc-text {
+    background: var(--cream);
+    padding: 2mm 2.5mm;
+    font-size: 7.5pt;
+    color: var(--ink-mid);
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  /* FINAL CTA */
+  .cta-final {
+    background: var(--forest);
+    border-radius: 3px;
+    padding: 4.5mm 5.5mm;
+    color: rgba(255,255,255,0.9);
+    font-size: 8pt;
+    line-height: 1.6;
+  }
+  .cta-final strong { color: #fff; }
+  .cta-final .terra { color: var(--terra); }
+  .cta-final .cta-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2.5mm;
+    padding-top: 2.5mm;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .cta-url { color: var(--terra); font-weight: 500; font-size: 8pt; }
+
+  .footer {
+    position: absolute;
+    bottom: 5mm; left: 15mm; right: 15mm;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--cream);
+    padding-top: 2mm;
+    font-size: 6.5pt;
+    color: var(--ink-light);
+  }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.04em; }
+
+  .grain {
+    position: fixed; inset: 0; pointer-events: none; opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <span class="eyebrow">Sandhan Design · Website-Ressource</span>
+      <h1 class="doc-title">Wie gut ist deine Website wirklich?<br><em style="font-style:italic;font-weight:300;font-size:17pt;">Der Selbstcheck für Heilpraktiker in 10 Minuten</em></h1>
+      <p class="doc-sub">40 Punkte möglich · 5 Kategorien · Ergebnis sofort sichtbar</p>
+    </div>
+    <svg class="logo-mark" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="40" fill="#C4713A"/>
+      <circle cx="40" cy="40" r="37.5" fill="none" stroke="#2A4840" stroke-width="2"/>
+      <circle cx="40" cy="40" r="33" fill="none" stroke="#2A4840" stroke-width="0.8" opacity="0.45"/>
+      <text x="40" y="49" font-family="Georgia, serif" font-size="28" fill="#F6F1E7" text-anchor="middle" letter-spacing="2" font-weight="400">S.D</text>
+    </svg>
+  </div>
+
+  <!-- Intro + Score Box -->
+  <div class="intro-row">
+    <div class="intro-box">
+      Beantworte jede Frage ehrlich — über deine Website, wie sie heute ist. Gib dir <strong>0 Punkte</strong>, wenn die Aussage nicht zutrifft, <strong>1 Punkt</strong>, wenn sie teilweise zutrifft, und <strong>2 Punkte</strong>, wenn sie vollständig zutrifft. Die maximale Punktzahl ist 40. Trage am Ende deinen Gesamtscore ein und schau in der Auswertung nach.
+    </div>
+    <div class="score-box">
+      <div class="score-big">___ </div>
+      <div class="score-label">von 40 Punkten</div>
+      <div class="score-hint">Trag deinen<br>Gesamtscore hier ein</div>
+    </div>
+  </div>
+
+  <!-- Scoring Instructions -->
+  <div class="scoring-row">
+    <div class="score-pill"><div class="dot dot-0">0</div> Trifft nicht zu</div>
+    <div class="score-pill"><div class="dot dot-1">1</div> Trifft teilweise zu</div>
+    <div class="score-pill"><div class="dot dot-2">2</div> Trifft vollständig zu</div>
+    <div style="margin-left:auto;font-size:7.5pt;color:var(--ink-light);align-self:center;">Schreibe deine Punkte in die Kästchen &nbsp;→</div>
+  </div>
+
+  <!-- 5 Blocks in 2-col grid -->
+  <div class="blocks-grid">
+
+    <!-- Block 1: Rechtssicherheit -->
+    <div class="block">
+      <div class="block-header">
+        <div class="block-name"><span class="block-letter">1</span> Rechtssicherheit</div>
+        <span class="block-max">max. 10 Punkte</span>
+      </div>
+      <div class="block-items">
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Datenschutzerklärung erwähnt Art. 9 DSGVO<em>Gesundheitsdaten als besondere Kategorie</em></div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Google Fonts sind lokal eingebunden — nicht über CDN</div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Impressum ist in max. 2 Klicks erreichbar</div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Alle Texte vermeiden Heilversprechen nach HWG</div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">AVV mit Hosting-Anbieter abgeschlossen</div>
+        </div>
+      </div>
+      <div class="total-row">
+        <span class="total-label">Zwischensumme</span>
+        <div class="total-boxes"><div class="total-input"></div><span class="total-sep">/</span><span class="total-max">10</span></div>
+      </div>
+    </div>
+
+    <!-- Block 2: Erstgespräch / CTA -->
+    <div class="block">
+      <div class="block-header">
+        <div class="block-name"><span class="block-letter">2</span> Erstgespräch &amp; Call-to-Action</div>
+        <span class="block-max">max. 8 Punkte</span>
+      </div>
+      <div class="block-items">
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Der CTA ist ohne Scrollen sichtbar (above the fold)</div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Es gibt einen klaren nächsten Schritt auf der Startseite<em>Button, Formular oder Terminlink</em></div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Das Kontaktformular fragt nur das Nötigste ab<em>Name + Nachricht reicht; kein 10-Felder-Formular</em></div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Direkte Kontaktmöglichkeit vorhanden<em>Telefon oder E-Mail, nicht nur Formular</em></div>
+        </div>
+      </div>
+      <div class="total-row">
+        <span class="total-label">Zwischensumme</span>
+        <div class="total-boxes"><div class="total-input"></div><span class="total-sep">/</span><span class="total-max">8</span></div>
+      </div>
+    </div>
+
+    <!-- Block 3: Glaubwürdigkeit -->
+    <div class="block">
+      <div class="block-header">
+        <div class="block-name"><span class="block-letter">3</span> Glaubwürdigkeit &amp; Vertrauen</div>
+        <span class="block-max">max. 10 Punkte</span>
+      </div>
+      <div class="block-items">
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Echtes Foto von mir vorhanden<em>kein Stock-Foto, kein Avatar</em></div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Ausbildung oder Werdegang wird beschrieben</div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Mindestens ein HWG-konformes Testimonial vorhanden</div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Spezialisierung klar erkennbar<em>nicht „ich mache alles"</em></div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Die Sprache klingt nach mir — nicht nach einem Template</div>
+        </div>
+      </div>
+      <div class="total-row">
+        <span class="total-label">Zwischensumme</span>
+        <div class="total-boxes"><div class="total-input"></div><span class="total-sep">/</span><span class="total-max">10</span></div>
+      </div>
+    </div>
+
+    <!-- Block 4: Technik -->
+    <div class="block">
+      <div class="block-header">
+        <div class="block-name"><span class="block-letter">4</span> Technik &amp; Ladezeit</div>
+        <span class="block-max">max. 6 Punkte</span>
+      </div>
+      <div class="block-items">
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Ladezeit auf dem Smartphone unter 3 Sekunden<em>Test: PageSpeed Insights · google.com/speed/pagespeed</em></div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Alle Bilder optimiert<em>unter 200 KB pro Bild, WebP-Format empfohlen</em></div>
+        </div>
+        <div class="check-item">
+          <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+          <div class="check-text">Website auf Smartphone gut lesbar und bedienbar<em>Schriftgröße min. 16px, Buttons gut tippbar</em></div>
+        </div>
+      </div>
+      <div class="total-row">
+        <span class="total-label">Zwischensumme</span>
+        <div class="total-boxes"><div class="total-input"></div><span class="total-sep">/</span><span class="total-max">6</span></div>
+      </div>
+    </div>
+
+  </div><!-- /blocks-grid (Blöcke 1–4) -->
+
+  <!-- Footer Seite 1 -->
+  <div class="footer">
+    <span class="footer-brand">Sandhan Design · Webdesign für die Heilende Szene</span>
+    <span>Seite 1 von 2</span>
+  </div>
+
+</div><!-- /page 1 -->
+
+<!-- PAGE 2 -->
+<div class="page">
+
+  <!-- Mini-Header -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:6mm;border-bottom:2px solid var(--terra);margin-bottom:6mm;">
+    <div>
+      <span class="eyebrow">Website-Selbstcheck · Block 5 &amp; Auswertung</span>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:15pt;font-weight:400;color:var(--forest);line-height:1.2;">Inhalt, Klarheit &amp; Ergebnis</p>
+    </div>
+    <svg style="width:11mm;height:11mm;flex-shrink:0;" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="40" fill="#C4713A"/>
+      <circle cx="40" cy="40" r="37.5" fill="none" stroke="#2A4840" stroke-width="2"/>
+      <circle cx="40" cy="40" r="33" fill="none" stroke="#2A4840" stroke-width="0.8" opacity="0.45"/>
+      <text x="40" y="49" font-family="Georgia, serif" font-size="28" fill="#F6F1E7" text-anchor="middle" letter-spacing="2" font-weight="400">S.D</text>
+    </svg>
+  </div>
+
+  <!-- Block 5: Inhalt & Klarheit (full width) -->
+  <div class="block" style="margin-bottom:6mm;">
+    <div class="block-header">
+      <div class="block-name"><span class="block-letter">5</span> Inhalt &amp; Klarheit</div>
+      <span class="block-max">max. 6 Punkte</span>
+    </div>
+    <div class="block-items" style="display:grid;grid-template-columns:1fr 1fr 1fr;">
+      <div class="check-item" style="border-right:1px solid rgba(42,72,64,0.06);">
+        <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+        <div class="check-text">In 5 Sekunden erkennbar: Was ich anbiete und für wen<em>Headline + Subheadline auf der Startseite</em></div>
+      </div>
+      <div class="check-item" style="border-right:1px solid rgba(42,72,64,0.06);">
+        <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+        <div class="check-text">Preise oder Preisrahmen sind transparent<em>zumindest „ab €X" oder Pakete erklärt</em></div>
+      </div>
+      <div class="check-item">
+        <div class="score-input"><div class="s-box">0</div><div class="s-box">1</div><div class="s-box">2</div></div>
+        <div class="check-text">Texte in kurzen Absätzen<em>max. 3–4 Sätze pro Block, keine Fließtext-Wände</em></div>
+      </div>
+    </div>
+    <div class="total-row">
+      <span class="total-label">Zwischensumme</span>
+      <div class="total-boxes"><div class="total-input"></div><span class="total-sep">/</span><span class="total-max">6</span></div>
+    </div>
+  </div>
+
+  <!-- Gesamtscore -->
+  <div style="background:var(--cream);border-radius:3px;padding:4mm 5mm;margin-bottom:6mm;display:flex;align-items:center;gap:5mm;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:13pt;font-weight:500;color:var(--forest);white-space:nowrap;">Gesamtscore:</div>
+    <div style="display:flex;align-items:center;gap:2mm;">
+      <div style="width:14mm;height:7mm;border:1.5px solid var(--forest);border-radius:2px;background:#fff;"></div>
+      <span style="font-size:9pt;color:var(--ink-mid);">von 40 Punkten</span>
+    </div>
+    <div style="font-size:7.5pt;color:var(--ink-light);margin-left:auto;line-height:1.4;">Addiere alle 5 Zwischensummen:<br>10 + 8 + 10 + 6 + 6 = max. 40</div>
+  </div>
+
+  <!-- Auswertung -->
+  <div class="result-section">
+    <div class="result-title">Auswertung — was dein Score bedeutet</div>
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="rc-score">34 – 40 Punkte</div>
+        <div class="rc-text">Deine Website arbeitet für dich. Das Fundament steht — vielleicht gibt es noch Feinheiten.</div>
+      </div>
+      <div class="result-card">
+        <div class="rc-score">24 – 33 Punkte</div>
+        <div class="rc-text">Solide Basis, aber konkrete Lücken. Einige davon lassen sich schnell schließen.</div>
+      </div>
+      <div class="result-card">
+        <div class="rc-score">14 – 23 Punkte</div>
+        <div class="rc-text">Deine Website kostet dich Klienten, die du nie siehst. Zeit für eine Überarbeitung.</div>
+      </div>
+      <div class="result-card">
+        <div class="rc-score">0 – 13 Punkte</div>
+        <div class="rc-text">Deine Website schadet aktiv: fehlendes Recht, schwache Wirkung — oder beides.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-final">
+    Egal wo du stehst — <span class="terra">ich schaue mir deine Website im kostenlosen Erstgespräch konkret an.</span> Nicht mit einer Checkliste, sondern mit dem Blick von jemandem, der diese Welt seit 40 Jahren kennt: die HWG-Fallen, die DSGVO-Tücken, das Design, das wirkt — und das, das nicht wirkt.
+    <div class="cta-line">
+      <span><strong>Kein Druck, keine Verpflichtung.</strong> Ich sage ehrlich, wenn ich nicht der Richtige bin.</span>
+      <span class="cta-url">sandhan-design.com</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="footer-brand">Sandhan Design · Webdesign für die Heilende Szene · Sandhan Jürgen Westphal · Leipzig</span>
+    <span>Seite 2 von 2 · Stand: 2026</span>
+  </div>
+
+</div><!-- /page 2 -->
+</body>
+</html>

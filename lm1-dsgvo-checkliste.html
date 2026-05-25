@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSGVO-Checkliste — Sandhan Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest:   #2A4840;
+    --terra:    #C4713A;
+    --parchment:#F6F1E7;
+    --cream:    #EDE5D4;
+    --ink:      #1A1917;
+    --ink-mid:  #4A4745;
+    --ink-light:#7A7673;
+    --sage:     #7A9589;
+  }
+
+  html, body {
+    width: 210mm;
+    min-height: 297mm;
+    background: var(--parchment);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 14mm 16mm 12mm;
+    background: var(--parchment);
+    position: relative;
+    page-break-after: always;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 8mm;
+    border-bottom: 2px solid var(--terra);
+    margin-bottom: 7mm;
+  }
+  .header-left {}
+  .eyebrow {
+    font-size: 6.5pt;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terra);
+    display: block;
+    margin-bottom: 2mm;
+  }
+  .doc-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22pt;
+    font-weight: 400;
+    color: var(--forest);
+    line-height: 1.15;
+    max-width: 130mm;
+  }
+  .doc-sub {
+    font-size: 8pt;
+    color: var(--ink-mid);
+    margin-top: 2mm;
+    max-width: 130mm;
+  }
+  .logo-mark {
+    width: 14mm;
+    height: 14mm;
+    flex-shrink: 0;
+  }
+
+  /* ── INTRO BOX ── */
+  .intro-box {
+    background: var(--forest);
+    color: #fff;
+    border-radius: 3px;
+    padding: 4mm 6mm;
+    margin-bottom: 6mm;
+    font-size: 8pt;
+    line-height: 1.6;
+  }
+  .intro-box strong { color: var(--terra); font-weight: 500; }
+
+  /* ── BLOCKS ── */
+  .block { margin-bottom: 5.5mm; }
+  .block-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11.5pt;
+    font-weight: 500;
+    color: var(--forest);
+    letter-spacing: 0.02em;
+    margin-bottom: 2.5mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px solid var(--cream);
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+  }
+  .block-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 5mm;
+    height: 5mm;
+    background: var(--terra);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 6pt;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  /* ── CHECKLIST ITEMS ── */
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 3mm;
+    padding: 2mm 2.5mm;
+    border-radius: 2px;
+    margin-bottom: 1mm;
+  }
+  .check-item:nth-child(odd) { background: var(--cream); }
+  .check-item:nth-child(even) { background: transparent; }
+
+  .checkbox {
+    width: 4mm;
+    height: 4mm;
+    border: 1.2px solid var(--forest);
+    border-radius: 1px;
+    flex-shrink: 0;
+    margin-top: 0.3mm;
+  }
+  .check-text {
+    font-size: 8pt;
+    color: var(--ink);
+    line-height: 1.45;
+    flex: 1;
+  }
+  .check-text em {
+    font-style: normal;
+    font-size: 7pt;
+    color: var(--ink-light);
+    display: block;
+    margin-top: 0.5mm;
+  }
+
+  /* ── COLUMNS ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+  }
+
+  /* ── RESULT BOX ── */
+  .result-box {
+    background: var(--forest);
+    border-radius: 3px;
+    padding: 5mm 6mm;
+    margin-top: 6mm;
+    color: #fff;
+  }
+  .result-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13pt;
+    font-weight: 400;
+    color: var(--terra);
+    margin-bottom: 3mm;
+  }
+  .result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5mm;
+  }
+  .result-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5mm;
+    background: rgba(255,255,255,0.06);
+    border-radius: 2px;
+    padding: 2.5mm 3mm;
+  }
+  .result-score {
+    font-size: 8pt;
+    font-weight: 500;
+    color: var(--terra);
+  }
+  .result-label {
+    font-size: 7.5pt;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.4;
+  }
+
+  /* ── CTA ── */
+  .cta-bar {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    margin-top: 3mm;
+    padding-top: 3mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cta-text {
+    font-size: 8pt;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.5;
+  }
+  .cta-text strong { color: #fff; }
+  .cta-url {
+    font-size: 7.5pt;
+    color: var(--terra);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-left: 4mm;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    position: absolute;
+    bottom: 6mm;
+    left: 16mm;
+    right: 16mm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--cream);
+    padding-top: 2mm;
+  }
+  .footer-brand {
+    font-size: 6.5pt;
+    color: var(--ink-light);
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.05em;
+  }
+  .footer-note {
+    font-size: 6.5pt;
+    color: var(--ink-light);
+  }
+
+  /* ── GRAIN TEXTURE OVERLAY ── */
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  }
+
+  @media print {
+    html, body { background: var(--parchment); }
+    .page { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- PAGE 1 -->
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <span class="eyebrow">Sandhan Design · DSGVO-Ressource</span>
+      <h1 class="doc-title">Ist deine Heilpraktiker-Website<br>DSGVO-sicher?</h1>
+      <p class="doc-sub">17-Punkte-Checkliste — jetzt ehrlich durchgehen und Lücken schließen</p>
+    </div>
+    <svg class="logo-mark" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="40" fill="#C4713A"/>
+      <circle cx="40" cy="40" r="37.5" fill="none" stroke="#2A4840" stroke-width="2"/>
+      <circle cx="40" cy="40" r="33" fill="none" stroke="#2A4840" stroke-width="0.8" opacity="0.45"/>
+      <text x="40" y="49" font-family="Georgia, serif" font-size="28" fill="#F6F1E7" text-anchor="middle" letter-spacing="2" font-weight="400">S.D</text>
+    </svg>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro-box">
+    Heilpraktiker-Websites verarbeiten regelmäßig <strong>Gesundheitsdaten</strong> — die nach Art. 9 DSGVO als besondere Kategorie personenbezogener Daten gelten. Das bedeutet: höhere Sorgfaltspflichten als für normale Websites. Diese Checkliste zeigt dir, wo deine Website steht.
+  </div>
+
+  <div class="two-col">
+
+    <!-- Block 1 -->
+    <div class="block">
+      <div class="block-title"><span class="block-num">1</span> Impressum & Pflichtangaben</div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Impressum enthält: vollständiger Name, Adresse, Telefon, E-Mail</div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Berufsbezeichnung und Erlaubnisbehörde nach HPG angegeben<em>z.B. Gesundheitsamt [Stadt], erteilt am [Datum]</em></div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">USt-ID oder Hinweis auf Befreiung vorhanden</div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Impressum von jeder Seite in max. 2 Klicks erreichbar</div>
+      </div>
+    </div>
+
+    <!-- Block 2 -->
+    <div class="block">
+      <div class="block-title"><span class="block-num">2</span> Datenschutzerklärung — Pflicht</div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Datenschutzerklärung ist vorhanden und verlinkt</div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text"><strong>Art. 9 DSGVO</strong> wird explizit erwähnt<em>Gesundheitsdaten als besondere Kategorie</em></div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Alle eingesetzten Tools sind aufgelistet<em>Google Fonts, Analytics, Kontaktformular, Calendly …</em></div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Rechte der Betroffenen erklärt<em>Auskunft, Löschung, Widerspruch, Datenübertragung</em></div>
+      </div>
+    </div>
+
+    <!-- Block 3 -->
+    <div class="block">
+      <div class="block-title"><span class="block-num">3</span> Google Fonts & externe Ressourcen</div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Google Fonts lokal gehostet — <em>nicht</em> über Google CDN<em>CDN-Aufruf übermittelt IP-Adressen an Google/USA</em></div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Keine YouTube-Embeds ohne Einwilligungs-Banner</div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Keine Google Maps-Einbettung ohne Consent</div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Social-Media-Buttons nur als einfache Links<em>nicht als Plugins, die beim Laden Daten senden</em></div>
+      </div>
+    </div>
+
+    <!-- Block 4 -->
+    <div class="block">
+      <div class="block-title"><span class="block-num">4</span> Cookies & Tracking</div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Nur technisch notwendige Cookies ohne Banner erlaubt</div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Google Analytics / Meta Pixel: nur mit aktivem Consent<em>kein automatisches Laden ohne Einwilligung</em></div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Cookie-Banner (falls vorhanden): „Ablehnen" so prominent wie „Akzeptieren"</div>
+      </div>
+    </div>
+
+    <!-- Block 5 -->
+    <div class="block">
+      <div class="block-title"><span class="block-num">5</span> Kontaktformular & Kommunikation</div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Website läuft vollständig über HTTPS (SSL-Zertifikat)</div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Kontaktformular enthält Hinweis auf Datenverarbeitung</div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Keine vorausgefüllten Einwilligungs-Checkboxen</div>
+      </div>
+    </div>
+
+    <!-- Block 6 -->
+    <div class="block">
+      <div class="block-title"><span class="block-num">6</span> Hosting & Verträge</div>
+
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Auftragsverarbeitungsvertrag (AVV) mit Hosting-Anbieter abgeschlossen</div>
+      </div>
+      <div class="check-item">
+        <div class="checkbox"></div>
+        <div class="check-text">Hosting-Anbieter sitzt in der EU — oder hat gültigen DPF-Nachweis (USA)</div>
+      </div>
+    </div>
+
+  </div><!-- /two-col -->
+
+  <!-- Footer Seite 1 -->
+  <div class="footer">
+    <span class="footer-brand">Sandhan Design · Webdesign für die Heilende Szene</span>
+    <span class="footer-note">Seite 1 von 2</span>
+  </div>
+
+</div><!-- /page 1 -->
+
+<!-- PAGE 2 — Auswertung -->
+<div class="page">
+
+  <!-- Mini-Header Seite 2 -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:6mm;border-bottom:2px solid var(--terra);margin-bottom:7mm;">
+    <div>
+      <span class="eyebrow">DSGVO-Checkliste · Auswertung</span>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:17pt;font-weight:400;color:var(--forest);line-height:1.2;">Wie viele Punkte hast du abgehakt?</p>
+    </div>
+    <svg style="width:11mm;height:11mm;flex-shrink:0;" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="40" fill="#C4713A"/>
+      <circle cx="40" cy="40" r="37.5" fill="none" stroke="#2A4840" stroke-width="2"/>
+      <circle cx="40" cy="40" r="33" fill="none" stroke="#2A4840" stroke-width="0.8" opacity="0.45"/>
+      <text x="40" y="49" font-family="Georgia, serif" font-size="28" fill="#F6F1E7" text-anchor="middle" letter-spacing="2" font-weight="400">S.D</text>
+    </svg>
+  </div>
+
+  <!-- Erinnerungszeile -->
+  <div style="background:var(--cream);border-radius:3px;padding:3mm 5mm;margin-bottom:7mm;font-size:8pt;color:var(--ink-mid);line-height:1.5;">
+    Zähle alle abgehakten Punkte aus den 6 Blöcken auf Seite 1 zusammen — maximal 17 Punkte möglich.
+  </div>
+
+  <!-- Auswertung visuell -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;margin-bottom:8mm;">
+
+    <div style="background:var(--forest);color:#fff;border-radius:4px;padding:5mm 6mm;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22pt;font-weight:400;color:var(--terra);margin-bottom:2mm;">17 von 17</div>
+      <div style="font-size:8.5pt;line-height:1.55;">Deine Website ist rechtssicher. Alle Pflichten erfüllt — gut gemacht.</div>
+    </div>
+
+    <div style="background:var(--cream);border-radius:4px;padding:5mm 6mm;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22pt;font-weight:400;color:var(--forest);margin-bottom:2mm;">12 – 16</div>
+      <div style="font-size:8.5pt;color:var(--ink-mid);line-height:1.55;">Solide Basis, aber offene Punkte mit Abmahnrisiko. Handeln lohnt sich jetzt.</div>
+    </div>
+
+    <div style="background:var(--cream);border-radius:4px;padding:5mm 6mm;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22pt;font-weight:400;color:var(--terra);margin-bottom:2mm;">7 – 11</div>
+      <div style="font-size:8.5pt;color:var(--ink-mid);line-height:1.55;">Konkrete Lücken — besser jetzt handeln als nach einer Abmahnung. Einige Punkte lassen sich schnell schließen.</div>
+    </div>
+
+    <div style="background:#2A1810;color:#fff;border-radius:4px;padding:5mm 6mm;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22pt;font-weight:400;color:#E8917A;margin-bottom:2mm;">0 – 6</div>
+      <div style="font-size:8.5pt;line-height:1.55;">Dringende Überarbeitung nötig. Jede Woche ohne Korrektur erhöht das Risiko.</div>
+    </div>
+
+  </div>
+
+  <!-- Was fehlt / Nächste Schritte -->
+  <div style="background:var(--cream);border-radius:3px;padding:5mm 6mm;margin-bottom:7mm;">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:12pt;font-weight:500;color:var(--forest);margin-bottom:3mm;">Was du jetzt tun kannst</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;font-size:8pt;color:var(--ink-mid);line-height:1.6;">
+      <div>
+        <strong style="color:var(--forest);display:block;margin-bottom:1mm;">Google Fonts selbst hosten</strong>
+        google-webfonts-helper.herokuapp.com — Schriften herunterladen und lokal einbinden. Kein CDN-Aufruf mehr.
+      </div>
+      <div>
+        <strong style="color:var(--forest);display:block;margin-bottom:1mm;">AVV mit Hoster abschließen</strong>
+        Die meisten Hoster (IONOS, Hetzner, Strato) bieten AVV-Vorlagen an — meist ein einfaches Formular im Kundenkonto.
+      </div>
+      <div>
+        <strong style="color:var(--forest);display:block;margin-bottom:1mm;">Datenschutzerklärung prüfen</strong>
+        Suchst du „Art. 9 DSGVO" in deiner aktuellen Erklärung? Wenn du nichts findest, fehlt der entscheidende Passus für Gesundheitsdaten.
+      </div>
+      <div>
+        <strong style="color:var(--forest);display:block;margin-bottom:1mm;">Impressum vollständig?</strong>
+        Erlaubnisbehörde (Gesundheitsamt + Datum) ist Pflicht für Heilpraktiker — viele vergessen das.
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="result-box">
+    <div class="result-title">Lieber jemanden fragen, der die Szene kennt?</div>
+    <div style="font-size:8.5pt;color:rgba(255,255,255,0.88);line-height:1.65;margin-bottom:3mm;">
+      Ich baue Heilpraktiker-Websites seit Jahrzehnten — und kenne jeden Punkt dieser Checkliste aus der Praxis.
+      DSGVO, HWG, Hosting: alles standardmäßig und ohne Aufpreis in jeder Website dabei.
+    </div>
+    <div class="cta-bar">
+      <div class="cta-text"><strong>Im kostenlosen Erstgespräch</strong> schaue ich mir deine Website konkret an.<br>Kein Druck, keine Verpflichtung — ich sage ehrlich, wenn ich nicht der Richtige bin.</div>
+      <a class="cta-url" href="https://sandhan-design.com">sandhan-design.com</a>
+    </div>
+  </div>
+
+  <!-- Footer Seite 2 -->
+  <div class="footer">
+    <span class="footer-brand">Sandhan Design · Webdesign für die Heilende Szene</span>
+    <span class="footer-note">Kein Rechtsdokument. Stand: 2026. Ersetzt keine Rechtsberatung.</span>
+  </div>
+
+</div><!-- /page 2 -->
+
+</body>
+</html>
