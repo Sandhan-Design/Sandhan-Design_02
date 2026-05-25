@@ -1273,7 +1273,7 @@
       max-width: 150px;
       object-fit: contain;
       display: block;
-      filter: drop-shadow(0 1px 4px rgba(0,0,0,0.18)) brightness(0.82) contrast(1.1);
+      filter: drop-shadow(0 1px 6px rgba(0,0,0,0.22));
     }
 
     /* ── ABOUT PHOTO ───────────────────────────── */
@@ -1487,8 +1487,13 @@
 <!-- ══ NAVIGATION ══════════════════════════════ -->
 <nav id="nav">
   <a href="#" class="nav-brand">
-    <img src="sandhan_design_logo_under_1mb.jpg" alt="Sandhan Design" class="nav-logo"
-         onerror="this.style.display='none'">
+    <svg class="nav-logo" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sandhan Design Logo">
+      <circle cx="40" cy="40" r="39" fill="#2A4840"/>
+      <circle cx="40" cy="40" r="37.5" fill="none" stroke="#C4713A" stroke-width="1.4"/>
+      <circle cx="40" cy="40" r="33.5" fill="none" stroke="#C4713A" stroke-width="0.6" opacity="0.55"/>
+      <circle cx="40" cy="40" r="1.8" fill="#C4713A" opacity="0.65"/>
+      <text x="40" y="47" font-family="Georgia, serif" font-size="21" fill="#C4713A" text-anchor="middle" letter-spacing="4" font-weight="400">S.D</text>
+    </svg>
     <span class="nav-brand-text">Sandhan<em>.Design</em></span>
   </a>
   <ul class="nav-links">
