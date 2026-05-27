@@ -29,7 +29,7 @@ Energiearbeit — und alle, die in der Heilenden Szene tätig sind.
 2. DSGVO-konform standardmäßig (keine Zusatzkosten)
 3. HWG-konforme Texte — kein Abmahnrisiko
 4. Festpreis, kein Scope-Creep
-5. EU-konformes Hosting in Deutschland
+5. EU-konformes Hosting in Deutschland — Hetzner Cloud, Rechenzentrum Nürnberg/Falkenstein, DSGVO Art. 28 AV-Vertrag
 
 ## Häufige Fragen (FAQ)
 
